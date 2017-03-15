@@ -1,31 +1,36 @@
-baseurl = "https://example.com/"
-theme = "cocoa-eh-hugo-theme"
+BaseUrl = "https://xinye1.github.io/"
+theme = "casper"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"
-languageCode = "en-US"
+LanguageCode = "en-GB"
 layoutdir = "layouts"
 publishdir = "public"
-author = "Alexis Tacnet"
-title = "Cocoa Enhanced"
-disqusshortname = ""
+author = "Xinye Li"
+title = "Xinye Fiddles"
+paginate = 5
+disqusshortname = "xinye"
 pluralizelisttitles = false
 
 [permalinks]
-blog = "blog/:slug/"
+	blog = "blog/:slug/"
 
 [params]
-dateform = "Jan 2, 2006"
-dateformfull = "Mon Jan 2 2006 15:04:05 MST"
-description = "Example blog"
-copyright = "Copyright © 2015 Nishanth Shanmugham"
-logofile = "img/logo.png"
-faviconfile = "img/logo.png"
-highlightjs = true
-progressively = true
-latestpostcount = 5
-github = "example"
-email = "you@example.com"
-linkedin = "john-example-aa80ue8è"
-twitter = "example"
-social_banner = "img/banner.png"
+
+	dateformfull = "Mon 2 Jan 2006 15:04:05 GMT"
+	description = "This is where I share the results of my fiddling with data, with coding, and whatever I may get into in the future."
+	copyright = "Copyright © 2017 Xinye Li
+	logofile = "img/xl_avatar.jpg"
+	faviconfile = "img/favicon_tf.png"
+	highlightjs = true
+	progressively = true
+	latestpostcount = 5
+	github = "xinye1"
+	githubName = "xinye1"
+	email = "xinyelee@gmail.com"
+	linkedin = "xinyeli"
+	linkedinName = "xinyeli"
+	twitter = "xinye"
+	twitterName = "xinye"
+	social_banner = "img/banner_tf.jpg"
+	googleAnalyticsUserID = "UA-93764648-1"
