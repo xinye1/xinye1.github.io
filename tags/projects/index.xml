@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Cocoa Enhanced</title>
-    <link>https://example.com/tags/projects/index.xml</link>
-    <description>Recent content in Projects on Cocoa Enhanced</description>
+    <title>Projects on Xinye Fiddles</title>
+    <link>https://xinye1.github.io/tags/projects/index.xml</link>
+    <description>Recent content in Projects on Xinye Fiddles</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>Copyright © 2015 Nishanth Shanmugham</copyright>
-    <atom:link href="https://example.com/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-GB</language>
+    <copyright>All rghts reserved, Xinye Li 2017</copyright>
+    <atom:link href="https://xinye1.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>A small project example : add yours !</title>
-      <link>https://example.com/projects/small-project/</link>
+      <link>https://xinye1.github.io/projects/small-project/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/projects/small-project/</guid>
+      <guid>https://xinye1.github.io/projects/small-project/</guid>
       <description>&lt;p&gt;Along with &lt;a href=&#34;https://en.wikipedia.org/wiki/Ford_Prefect_(character)&#34;&gt;Ford Prefect&lt;/a&gt;, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a &lt;em&gt;hyperspace bypass&lt;/em&gt;. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.&lt;/p&gt;
 
 &lt;blockquote&gt;

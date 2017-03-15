@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Cocoa Enhanced</title>
-    <link>https://example.com/blog/index.xml</link>
-    <description>Recent content in Blog on Cocoa Enhanced</description>
+    <title>Blog on Xinye Fiddles</title>
+    <link>https://xinye1.github.io/blog/index.xml</link>
+    <description>Recent content in Blog on Xinye Fiddles</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>Copyright © 2015 Nishanth Shanmugham</copyright>
+    <language>en-GB</language>
+    <copyright>All rghts reserved, Xinye Li 2017</copyright>
     <lastBuildDate>Mon, 28 Sep 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xinye1.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Example article</title>
-      <link>https://example.com/blog/example-article/</link>
+      <link>https://xinye1.github.io/blog/example-article/</link>
       <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/example-article/</guid>
+      <guid>https://xinye1.github.io/blog/example-article/</guid>
       <description>
 
 &lt;h2 id=&#34;text&#34;&gt;Text&lt;/h2&gt;
@@ -26,7 +26,7 @@
 
 &lt;p&gt;&lt;strong&gt;This theme includes a tranparent way to defer images. This can be enabled/disabled in the &lt;code&gt;config.toml&lt;/code&gt;.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://example.com/img/startup.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xinye1.github.io/img/startup.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;You will just have to do two images : the normal, and a low resolution one.&lt;/strong&gt;&lt;/p&gt;
 
@@ -49,10 +49,10 @@
     
     <item>
       <title>Creating a New Theme</title>
-      <link>https://example.com/blog/creating-a-new-theme/</link>
+      <link>https://xinye1.github.io/blog/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/creating-a-new-theme/</guid>
+      <guid>https://xinye1.github.io/blog/creating-a-new-theme/</guid>
       <description>
 
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
@@ -1151,10 +1151,10 @@ $ vi themes/zafta/layouts/_default/single.html
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>https://example.com/blog/hugo-template-primer/</link>
+      <link>https://xinye1.github.io/blog/hugo-template-primer/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/hugo-template-primer/</guid>
+      <guid>https://xinye1.github.io/blog/hugo-template-primer/</guid>
       <description>
 
 &lt;p&gt;Hugo uses the excellent &lt;a href=&#34;http://golang.org/&amp;gt;&#34;&gt;go&lt;/a&gt; &lt;a href=&#34;http://golang.org/pkg/html/template/&amp;gt;&#34;&gt;html/template&lt;/a&gt; library for
@@ -1213,7 +1213,7 @@ functions.&lt;/p&gt;
 &lt;p&gt;Each go template has a struct (object) made available to it. In hugo each
 template is passed either a page or a node struct depending on which type of
 page you are rendering. More details are available on the
-&lt;a href=&#34;https://example.com/layout/variables&#34;&gt;variables&lt;/a&gt; page.&lt;/p&gt;
+&lt;a href=&#34;https://xinye1.github.io/layout/variables&#34;&gt;variables&lt;/a&gt; page.&lt;/p&gt;
 
 &lt;p&gt;A variable is accessed by referencing the variable name.&lt;/p&gt;
 
@@ -1230,7 +1230,7 @@ page you are rendering. More details are available on the
 
 &lt;p&gt;Go template ship with a few functions which provide basic functionality. The go
 template system also provides a mechanism for applications to extend the
-available functions with their own. &lt;a href=&#34;https://example.com/layout/functions&#34;&gt;Hugo template
+available functions with their own. &lt;a href=&#34;https://xinye1.github.io/layout/functions&#34;&gt;Hugo template
 functions&lt;/a&gt; provide some additional functionality we believe
 are useful for building websites. Functions are called by using their name
 followed by the required parameters separated by spaces. Template
@@ -1418,7 +1418,7 @@ you want to inside of your templates.&lt;/p&gt;
 &lt;h2 id=&#34;using-content-page-parameters&#34;&gt;Using Content (page) Parameters&lt;/h2&gt;
 
 &lt;p&gt;In each piece of content you can provide variables to be used by the
-templates. This happens in the &lt;a href=&#34;https://example.com/content/front-matter&#34;&gt;front matter&lt;/a&gt;.&lt;/p&gt;
+templates. This happens in the &lt;a href=&#34;https://xinye1.github.io/content/front-matter&#34;&gt;front matter&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;An example of this is used in this documentation site. Most of the pages
 benefit from having the table of contents provided. Sometimes the TOC just
@@ -1497,10 +1497,10 @@ so, such as in this example:&lt;/p&gt;
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://example.com/blog/getting-started-with-hugo/</link>
+      <link>https://xinye1.github.io/blog/getting-started-with-hugo/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/getting-started-with-hugo/</guid>
+      <guid>https://xinye1.github.io/blog/getting-started-with-hugo/</guid>
       <description>
 
 &lt;h2 id=&#34;step-1-install-hugo&#34;&gt;Step 1. Install Hugo&lt;/h2&gt;
@@ -1510,7 +1510,7 @@ appropriate version for your os and architecture.&lt;/p&gt;
 
 &lt;p&gt;Save it somewhere specific as we will be using it in the next step.&lt;/p&gt;
 
-&lt;p&gt;More complete instructions are available at &lt;a href=&#34;https://example.com/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;More complete instructions are available at &lt;a href=&#34;https://xinye1.github.io/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;step-2-build-the-docs&#34;&gt;Step 2. Build the Docs&lt;/h2&gt;
 

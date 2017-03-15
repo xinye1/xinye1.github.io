@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cocoa Enhanced</title>
-    <link>https://example.com/index.xml</link>
-    <description>Recent content on Cocoa Enhanced</description>
+    <title>Xinye Fiddles</title>
+    <link>https://xinye1.github.io/index.xml</link>
+    <description>Recent content on Xinye Fiddles</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>Copyright © 2015 Nishanth Shanmugham</copyright>
+    <language>en-GB</language>
+    <copyright>All rghts reserved, Xinye Li 2017</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xinye1.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>A small project example : add yours !</title>
-      <link>https://example.com/projects/small-project/</link>
+      <link>https://xinye1.github.io/projects/small-project/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/projects/small-project/</guid>
+      <guid>https://xinye1.github.io/projects/small-project/</guid>
       <description>&lt;p&gt;Along with &lt;a href=&#34;https://en.wikipedia.org/wiki/Ford_Prefect_(character)&#34;&gt;Ford Prefect&lt;/a&gt;, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a &lt;em&gt;hyperspace bypass&lt;/em&gt;. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -28,10 +28,10 @@
     
     <item>
       <title>A Plain Markdown Post</title>
-      <link>https://example.com/post/2016-12-30-hello-markdown/</link>
+      <link>https://xinye1.github.io/post/2016-12-30-hello-markdown/</link>
       <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
       
-      <guid>https://example.com/post/2016-12-30-hello-markdown/</guid>
+      <guid>https://xinye1.github.io/post/2016-12-30-hello-markdown/</guid>
       <description>&lt;p&gt;This is a post written in plain Markdown (&lt;code&gt;*.md&lt;/code&gt;) instead of R Markdown (&lt;code&gt;*.Rmd&lt;/code&gt;). The major differences are:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -59,10 +59,10 @@
     
     <item>
       <title>Example article</title>
-      <link>https://example.com/blog/example-article/</link>
+      <link>https://xinye1.github.io/blog/example-article/</link>
       <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/example-article/</guid>
+      <guid>https://xinye1.github.io/blog/example-article/</guid>
       <description>
 
 &lt;h2 id=&#34;text&#34;&gt;Text&lt;/h2&gt;
@@ -73,7 +73,7 @@
 
 &lt;p&gt;&lt;strong&gt;This theme includes a tranparent way to defer images. This can be enabled/disabled in the &lt;code&gt;config.toml&lt;/code&gt;.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://example.com/img/startup.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xinye1.github.io/img/startup.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;You will just have to do two images : the normal, and a low resolution one.&lt;/strong&gt;&lt;/p&gt;
 
@@ -96,10 +96,10 @@
     
     <item>
       <title>About</title>
-      <link>https://example.com/about/</link>
+      <link>https://xinye1.github.io/about/</link>
       <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/about/</guid>
+      <guid>https://xinye1.github.io/about/</guid>
       <description>&lt;p&gt;&lt;em&gt;With this theme, it is possible to add small sections that only contains one page like this. It will automatically appears in the header, at the end.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Along with &lt;a href=&#34;https://en.wikipedia.org/wiki/Ford_Prefect_(character)&#34;&gt;Ford Prefect&lt;/a&gt;, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a &lt;em&gt;hyperspace bypass&lt;/em&gt;. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.&lt;/p&gt;
@@ -114,10 +114,10 @@
     
     <item>
       <title>Projects</title>
-      <link>https://example.com/projects/projects/</link>
+      <link>https://xinye1.github.io/projects/projects/</link>
       <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
       
-      <guid>https://example.com/projects/projects/</guid>
+      <guid>https://xinye1.github.io/projects/projects/</guid>
       <description>&lt;p&gt;&lt;em&gt;In this theme, it is possible to add sections like a Projects one for example. You can add plenty of articles about your projects and a presentation page that will be displayed before the list. All is modulable, if you don&amp;rsquo;t want something.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;A Hollywood-funded film version, produced and filmed in the UK, was released in April 2005, and radio adaptations of the third, fourth, and fifth novels were broadcast from 2004 to 2005. Adams did many of these adaptations, including the novels, the TV series, the computer game, and the earliest drafts of the Hollywood film’s screenplay, and some of the stage shows introduced new material written by Adams.&lt;/p&gt;
@@ -126,10 +126,10 @@
     
     <item>
       <title>Hello R Markdown</title>
-      <link>https://example.com/post/2015-07-23-r-rmarkdown/</link>
+      <link>https://xinye1.github.io/post/2015-07-23-r-rmarkdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://example.com/post/2015-07-23-r-rmarkdown/</guid>
+      <guid>https://xinye1.github.io/post/2015-07-23-r-rmarkdown/</guid>
       <description>&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;R Markdown&lt;/h1&gt;
 &lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
@@ -163,7 +163,7 @@ pie(
   init.angle = -50, border = NA
 )&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;https://example.com/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://xinye1.github.io/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: A fancy pie chart.
 &lt;/p&gt;
@@ -174,20 +174,20 @@ Figure 1: A fancy pie chart.
     
     <item>
       <title>Lorem Ipsum</title>
-      <link>https://example.com/post/2015-01-01-lorem-ipsum/</link>
+      <link>https://xinye1.github.io/post/2015-01-01-lorem-ipsum/</link>
       <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
       
-      <guid>https://example.com/post/2015-01-01-lorem-ipsum/</guid>
+      <guid>https://xinye1.github.io/post/2015-01-01-lorem-ipsum/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Lorem ipsum&lt;/strong&gt; dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore &lt;em&gt;magna aliqua&lt;/em&gt;. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Creating a New Theme</title>
-      <link>https://example.com/blog/creating-a-new-theme/</link>
+      <link>https://xinye1.github.io/blog/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/creating-a-new-theme/</guid>
+      <guid>https://xinye1.github.io/blog/creating-a-new-theme/</guid>
       <description>
 
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
@@ -1286,10 +1286,10 @@ $ vi themes/zafta/layouts/_default/single.html
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>https://example.com/blog/hugo-template-primer/</link>
+      <link>https://xinye1.github.io/blog/hugo-template-primer/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/hugo-template-primer/</guid>
+      <guid>https://xinye1.github.io/blog/hugo-template-primer/</guid>
       <description>
 
 &lt;p&gt;Hugo uses the excellent &lt;a href=&#34;http://golang.org/&amp;gt;&#34;&gt;go&lt;/a&gt; &lt;a href=&#34;http://golang.org/pkg/html/template/&amp;gt;&#34;&gt;html/template&lt;/a&gt; library for
@@ -1348,7 +1348,7 @@ functions.&lt;/p&gt;
 &lt;p&gt;Each go template has a struct (object) made available to it. In hugo each
 template is passed either a page or a node struct depending on which type of
 page you are rendering. More details are available on the
-&lt;a href=&#34;https://example.com/layout/variables&#34;&gt;variables&lt;/a&gt; page.&lt;/p&gt;
+&lt;a href=&#34;https://xinye1.github.io/layout/variables&#34;&gt;variables&lt;/a&gt; page.&lt;/p&gt;
 
 &lt;p&gt;A variable is accessed by referencing the variable name.&lt;/p&gt;
 
@@ -1365,7 +1365,7 @@ page you are rendering. More details are available on the
 
 &lt;p&gt;Go template ship with a few functions which provide basic functionality. The go
 template system also provides a mechanism for applications to extend the
-available functions with their own. &lt;a href=&#34;https://example.com/layout/functions&#34;&gt;Hugo template
+available functions with their own. &lt;a href=&#34;https://xinye1.github.io/layout/functions&#34;&gt;Hugo template
 functions&lt;/a&gt; provide some additional functionality we believe
 are useful for building websites. Functions are called by using their name
 followed by the required parameters separated by spaces. Template
@@ -1553,7 +1553,7 @@ you want to inside of your templates.&lt;/p&gt;
 &lt;h2 id=&#34;using-content-page-parameters&#34;&gt;Using Content (page) Parameters&lt;/h2&gt;
 
 &lt;p&gt;In each piece of content you can provide variables to be used by the
-templates. This happens in the &lt;a href=&#34;https://example.com/content/front-matter&#34;&gt;front matter&lt;/a&gt;.&lt;/p&gt;
+templates. This happens in the &lt;a href=&#34;https://xinye1.github.io/content/front-matter&#34;&gt;front matter&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;An example of this is used in this documentation site. Most of the pages
 benefit from having the table of contents provided. Sometimes the TOC just
@@ -1632,10 +1632,10 @@ so, such as in this example:&lt;/p&gt;
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://example.com/blog/getting-started-with-hugo/</link>
+      <link>https://xinye1.github.io/blog/getting-started-with-hugo/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/getting-started-with-hugo/</guid>
+      <guid>https://xinye1.github.io/blog/getting-started-with-hugo/</guid>
       <description>
 
 &lt;h2 id=&#34;step-1-install-hugo&#34;&gt;Step 1. Install Hugo&lt;/h2&gt;
@@ -1645,7 +1645,7 @@ appropriate version for your os and architecture.&lt;/p&gt;
 
 &lt;p&gt;Save it somewhere specific as we will be using it in the next step.&lt;/p&gt;
 
-&lt;p&gt;More complete instructions are available at &lt;a href=&#34;https://example.com/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;More complete instructions are available at &lt;a href=&#34;https://xinye1.github.io/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;step-2-build-the-docs&#34;&gt;Step 2. Build the Docs&lt;/h2&gt;
 
@@ -1719,10 +1719,10 @@ Having nearly instant feedback enables you to have your creativity flow without 
     
     <item>
       <title>Home</title>
-      <link>https://example.com/home/</link>
+      <link>https://xinye1.github.io/home/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/home/</guid>
+      <guid>https://xinye1.github.io/home/</guid>
       <description>&lt;p&gt;&lt;em&gt;This is the home page. It will display the blog section if there is one, and a text before.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Hey ! Welcome to the &lt;strong&gt;Cocoa Enhanced theme&lt;/strong&gt;. Here are some articles :&lt;/p&gt;
@@ -1731,10 +1731,10 @@ Having nearly instant feedback enables you to have your creativity flow without 
     
     <item>
       <title>License</title>
-      <link>https://example.com/license/</link>
+      <link>https://xinye1.github.io/license/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/license/</guid>
+      <guid>https://xinye1.github.io/license/</guid>
       <description>&lt;p&gt;You can use this page to put a license on the contents of your blog, like so:&lt;/p&gt;
 
 &lt;blockquote&gt;
