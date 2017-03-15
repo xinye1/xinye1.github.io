@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Example blog">
+
+
+    <meta property="twitter:site" content="@example">
+
+<meta property="twitter:title" content="A Plain Markdown Post">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://example.com/img/banner.png">
+
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     Cocoa Enhanced - A Plain Markdown Post 
+
+</title>
+<link rel="canonical" href="https://example.com/post/2016-12-30-hello-markdown/">
+
+
+<link rel="stylesheet" href="https://example.com/css/main.v0.9.0.css">
+<link rel="stylesheet" href="https://example.com/css/ionicons.min.css">
+
+
+  <link rel="stylesheet" href="https://example.com/css/highlight.min.css">
+
+
+
+  <link rel="stylesheet" href="https://example.com/css/progressively.min.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://example.com/img/logo.png"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<section class="header">
+
+    <div class="container">
+        <a href="https://example.com/"><img class="logo" src="https://example.com/img/logo.png" alt="logo" /></a>
+        <div class="content">
+            <a href="https://example.com/"><div class="name"><h1>Cocoa Enhanced</h1></div></a>
+            <nav>
+                <ul>
+                    
+                        <a href="https://example.com/blog/"><li>Blog</li></a>
+                    
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                            <a href="https://example.com/post"><li>post</li></a>
+                            
+                        
+                    
+                        
+                            
+                            <a href="https://example.com/projects"><li>projects</li></a>
+                            
+                        
+                    
+                    
+                        
+                            <a href="https://example.com/about/"><li>About</li></a>
+                        
+                    
+                        
+                    
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    A Plain Markdown Post
+
+</div>
+
+            <div class="markdown">
+                
+    
+    <p>This is a post written in plain Markdown (<code>*.md</code>) instead of R Markdown (<code>*.Rmd</code>). The major differences are:</p>
+
+<ol>
+<li>You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (<code>```{r}</code>);</li>
+<li>A plain Markdown post is rendered through <a href="https://gohugo.io/overview/configuration/">Blackfriday</a>, and an R Markdown document is compiled by <a href="http://rmarkdown.rstudio.com"><strong>rmarkdown</strong></a> and <a href="http://pandoc.org">Pandoc</a>.</li>
+</ol>
+
+<p>There are many differences in syntax between Blackfriday&rsquo;s Markdown and Pandoc&rsquo;s Markdown. For example, you can write a task list with Blackfriday but not with Pandoc:</p>
+
+<ul class="task-list">
+<li><input type="checkbox" checked disabled class="task-list-item"> Write an R package.</li>
+<li><input type="checkbox" disabled class="task-list-item"> Write a book.</li>
+<li><input type="checkbox" disabled class="task-list-item"> &hellip;</li>
+<li><input type="checkbox" disabled class="task-list-item"> Profit!</li>
+</ul>
+
+<p>Similarly, Blackfriday does not support LaTeX math and Pandoc does. I have added the MathJax support to this theme (<a href="https://github.com/yihui/hugo-lithium-theme">hugo-lithium-theme</a>) but there is a caveat for plain Markdown posts: you have to include inline math expressions in  a pair of escaped parentheses <code>\( \)</code> instead of dollar signs <code>$ $</code>, e.g. <code>\(S_n = \sum_{i=1}^n X_i\)</code>. For R Markdown posts, you can use <code>$ $</code> to write inline math expressions.</p>
+
+<p>When creating a new post, you have to decide whether the post format is Markdown or R Markdown, and this can be done via the <code>rmd</code> argument of the function <code>blogdown::new_post()</code>, e.g.</p>
+
+<pre><code class="language-r">blogdown::new_post(&quot;Post Title&quot;, rmd = FALSE)
+</code></pre>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="footer">
+    <div class="container">
+        <div class="copyright">
+
+        
+            <a href="https://example.com/license">Copyright © 2015 Nishanth Shanmugham</a>
+        
+
+        </div>
+        <div class="icons">
+
+        
+            <a href="https://github.com/example" target="_blank">
+                <i class="icon ion-social-github" title="github"></i>
+            </a>
+        
+
+        
+            <a href="https://twitter.com/example" target="_blank">
+                <i class="icon ion-social-twitter" title="twitter"></i>
+            </a>
+        
+
+        
+            <a href="https://www.linkedin.com/in/john-example-aa80ue8%c3%a8" target="_blank">
+                <i class="icon ion-social-linkedin" title="linkedin"></i>
+            </a>
+        
+
+        
+            <a href="mailto:you@example.com">
+                <i class="icon ion-ios-email larger" title="email"></i>
+            </a>
+        
+
+        
+            <a href="https://example.com/index.xml">
+                <i class="icon ion-social-rss larger" title="rss"></i>
+            </a>
+        
+
+        </div>
+    </div>
+</section>
+
+
+  <script src="https://example.com/js/highlight.min.js" defer></script>
+  
+
+
+
+  <script src="https://example.com/js/progressively.min.js" defer></script>
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+      progressively.init({delay: 30, throttle: 50});
+    
+  };
+</script>
+
+</body>
+</html>
+
