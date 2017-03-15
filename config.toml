@@ -11,26 +11,23 @@ title = "Xinye Fiddles"
 paginate = 5
 disqusshortname = "xinye"
 pluralizelisttitles = false
-
 [permalinks]
-	blog = "blog/:slug/"
-
+blog = "blog/:slug/"
 [params]
-
-	dateformfull = "Mon 2 Jan 2006 15:04:05 GMT"
-	description = "This is where I share the results of my fiddling with data, with coding, and whatever I may get into in the future."
-	copyright = "Copyright © 2017 Xinye Li
-	logofile = "img/xl_avatar.jpg"
-	faviconfile = "img/favicon_tf.png"
-	highlightjs = true
-	progressively = true
-	latestpostcount = 5
-	github = "xinye1"
-	githubName = "xinye1"
-	email = "xinyelee@gmail.com"
-	linkedin = "xinyeli"
-	linkedinName = "xinyeli"
-	twitter = "xinye"
-	twitterName = "xinye"
-	social_banner = "img/banner_tf.jpg"
-	googleAnalyticsUserID = "UA-93764648-1"
+dateformfull = "Mon 2 Jan 2006 15:04:05 GMT"
+description = "This is where I share the results of my fiddling with data, with coding, and whatever I may get into in the future."
+copyright = "All rghts reserved, Xinye Li 2017"
+logofile = "img/xl_avatar.jpg"
+faviconfile = "img/favicon_tf.png"
+highlightjs = true
+progressively = true
+latestpostcount = 5
+github = "xinye1"
+githubName = "xinye1"
+email = "xinyelee@gmail.com"
+linkedin = "xinyeli"
+linkedinName = "xinyeli"
+twitter = "xinye"
+twitterName = "xinye"
+social_banner = "img/banner_tf.jpg"
+googleAnalyticsUserID = "UA-93764648-1"
