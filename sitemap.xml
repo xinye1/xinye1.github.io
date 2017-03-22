@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xinye1.github.io/blog/blogging-with-github-and-hugo/</loc>
+    <lastmod>2017-03-22T23:18:03+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://xinye1.github.io/projects/small-project/</loc>
     <lastmod>2017-01-01T00:00:00+00:00</lastmod>
   </url>
@@ -63,13 +68,13 @@
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/categories/development/</loc>
+    <loc>https://xinye1.github.io/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/tags/development/</loc>
+    <loc>https://xinye1.github.io/categories/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -81,13 +86,13 @@
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/categories/golang/</loc>
+    <loc>https://xinye1.github.io/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/tags/golang/</loc>
+    <loc>https://xinye1.github.io/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -167,7 +172,7 @@
   
   <url>
     <loc>https://xinye1.github.io/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-22T23:18:03+00:00</lastmod>
     <priority>0</priority>
   </url>
   

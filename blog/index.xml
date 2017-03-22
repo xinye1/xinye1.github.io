@@ -1582,5 +1582,82 @@ Having nearly instant feedback enables you to have your creativity flow without 
 </description>
     </item>
     
+    <item>
+      <title>Blogging with GitHub and Hugo</title>
+      <link>https://xinye1.github.io/blog/blogging-with-github-and-hugo/</link>
+      <pubDate>Wed, 22 Mar 2017 23:18:03 +0000</pubDate>
+      
+      <guid>https://xinye1.github.io/blog/blogging-with-github-and-hugo/</guid>
+      <description>&lt;p&gt;As a fairly late comer at the blogging party, I benefit greatly from others in gaining knowledge to create my own site.&lt;/p&gt;
+
+&lt;p&gt;The main documentation I followed while creating this blog is &lt;a href=&#34;https://proquestionasker.github.io/&#34;&gt;Amber Thomas&amp;rsquo;&lt;/a&gt; post &lt;a href=&#34;https://proquestionasker.github.io/blog/Making_Site/&#34;&gt;Making a website using Blogdown, Hugo and GitHub pages&lt;/a&gt;. It is a well written tutorial that expands on all aspects of the process. It is well worth a read if you are a beginner on Github, website building and theming. I just find it handy that everything is in one place, and often with good reference from other sources.&lt;/p&gt;
+
+&lt;p&gt;My attempt at making this blog, however, started further along still with more development on Hugo&amp;rsquo;s documentation on working with Github, i.e. documented by &lt;a href=&#34;https://hjdskes.github.io/&#34;&gt;Jente Hidskes&lt;/a&gt; in the &lt;a href=&#34;https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/&#34;&gt;updated post&lt;/a&gt; on the original one that Amber referred to. While there is no need to repeat what other people have explained eloquently, I try to point out catchas and slight errors I found in the reference, in the hope that whoever ends up reading this can avoid the many repeats I went through.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The first thing to keep in mind is that, while the process seems complicated at first, pretty much everything is reversible (except any existing blog post content if it&amp;rsquo;s included inside the website folders, save them somewhere else before you are happy with the website itself). Be brave and work through the steps, if there is a messed-up, the worst possible thing is that you delete the remote and the local repo and start again. Be fearless.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;While setting up Github to work with the local repo, opt straight for the SSH method, no need to dwell on HTTPS. That way you can avoid having to go back and change it when starting to run the Shell script. Another benefit is of course saving your entering the password every time you sync the remote and local repos.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;blogdown&lt;/code&gt; package is brilliant at simplifying steps of generating the basic website, these simple lines below give you a complete set of skeleton website files:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;install.packages(&#39;devtools&#39;)
+devtools::install_github(&amp;quot;rstudio/blogdown&amp;quot;)
+library(blogdown)
+install_hugo()
+new_site()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just a couple of things to watch out for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;After hugo is installed using the &lt;code&gt;R&lt;/code&gt; command (or indeed in the CLI), make sure that the installation directory is included in the operating system environment variable path. If it is not, the subsequent script for website deployment will not work (as it calls the &lt;code&gt;hugo&lt;/code&gt; command directly). Follow &lt;a href=&#34;https://www.schrodinger.com/kb/1842&#34;&gt;these&lt;/a&gt; to set up the path variable.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;new_site()&lt;/code&gt; function is a wrapper for &lt;code&gt;hugo&lt;/code&gt; command that generates the website files, it also includes theme downloading by default. This problem could be unique to me, but there were a few times the function downloaded the theme package and named the folder incorrectly (appending &lt;code&gt;-master&lt;/code&gt;  at the end at random), which causes the subsequent steps of the function to fail to find the theme. The solution is simply, clear the folders and run the function again! (And unsurprisingly running the function &lt;code&gt;install_theme()&lt;/code&gt; can also have this issue, as it is called inside &lt;code&gt;new_site()&lt;/code&gt;, but this doesn&amp;rsquo;t affect any automated process so is easy to rectify.)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;As &lt;a href=&#34;https://github.com/Hjdskes/hjdskes.github.io/pull/1&#34;&gt;confirmed with Jente&lt;/a&gt;, &lt;a href=&#34;https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-gh-pages/&#34;&gt;&lt;code&gt;setup.sh&lt;/code&gt;&lt;/a&gt; needs a modification: add &lt;code&gt;add&lt;/code&gt; to the final line between &lt;code&gt;worktree&lt;/code&gt; and &lt;code&gt;-B&lt;/code&gt;. So the complete script is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;#!/usr/bin/env bash
+
+# This script does the required work to set up your personal GitHub Pages
+# repository for deployment using Hugo. Run this script only once -- when the
+# setup has been done, run the `deploy.sh` script to deploy changes and update
+# your website. See
+# https://hjdskes.github.io/blog/update-deploying-hugo-on-personal-github-pages/
+# for more information.
+
+# Further to Jente&#39;s original script, &#39;add&#39; was added to the final line between &#39;worktree&#39; and &#39;-B&#39; - https://xinye1.github.io/blog/
+
+# Name of the branch containing the Hugo source files.
+SOURCE=hugo
+
+msg() {
+printf &amp;quot;\033[1;32m :: %s\n\033[0m&amp;quot; &amp;quot;$1&amp;quot;
+}
+
+msg &amp;quot;Adding the \`public\` folder to .gitignore&amp;quot;
+echo &amp;quot;public&amp;quot; &amp;gt;&amp;gt; .gitignore
+
+msg &amp;quot;Deleting the \`master\` branch&amp;quot;
+git branch -D master
+git push origin --delete master
+
+msg &amp;quot;Creating an empty, orphaned \`master\` branch&amp;quot;
+git checkout --orphan master
+git reset --hard
+git commit --allow-empty -m &amp;quot;Initial commit on master branch&amp;quot;
+git push origin master
+git checkout $SOURCE
+
+msg &amp;quot;Adding the master branch into the \`public\` folder&amp;quot;
+rm -rf public
+git worktree add -B master public origin/master
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;To-do: customise the theme to include syntax highlighting​.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
