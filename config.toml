@@ -1,5 +1,5 @@
 BaseUrl = "https://xinye1.github.io/"
-theme = "hugo-theme-casper"
+theme = "herring-cove"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"
