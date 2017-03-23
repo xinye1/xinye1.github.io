@@ -89,18 +89,14 @@ git worktree add -B master public origin/master
     <item>
       <title>About</title>
       <link>https://xinye1.github.io/about/</link>
-      <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 22 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://xinye1.github.io/about/</guid>
-      <description>&lt;p&gt;&lt;em&gt;With this theme, it is possible to add small sections that only contains one page like this. It will automatically appears in the header, at the end.&lt;/em&gt;&lt;/p&gt;
+      <description>&lt;p&gt;I&amp;rsquo;m onto a &lt;a href=&#34;https://github.com/xinye1&#34;&gt;few things&lt;/a&gt; these days. All is very exciting (for someone who has always been playing on the edge of programming, &lt;em&gt;proper&lt;/em&gt; data science, with a slice of Raspberry Pi leftover somewhere), but I think it&amp;rsquo;s time for me to actually focus and get a few concrete things done that&amp;rsquo;s actually of some value to the community.&lt;/p&gt;
 
-&lt;p&gt;Along with &lt;a href=&#34;https://en.wikipedia.org/wiki/Ford_Prefect_(character)&#34;&gt;Ford Prefect&lt;/a&gt;, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a &lt;em&gt;hyperspace bypass&lt;/em&gt;. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.&lt;/p&gt;
+&lt;p&gt;With a degree in Physics and another one in Economics, having a data science career means learning will always be the theme, with all the job changes as evidence. While I&amp;rsquo;m semi-proud of what I have learned so far I think I can learn so much faster and better, which is by the way of sharing what I have learned.&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;He rather enjoys tea, but seems to have trouble obtaining it in the far reaches of the galaxy.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In time, he learns how to fly and carves a niche for himself as a sandwich-maker.&lt;/p&gt;
+&lt;p&gt;And that is what this blog is about - I&amp;rsquo;d be very surprised and humbled by anyone who would actually spend time reading any of the content, but I shall enjoy my learning.&lt;/p&gt;
 </description>
     </item>
     
