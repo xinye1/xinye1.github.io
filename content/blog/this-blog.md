@@ -5,6 +5,8 @@ title = "Blogging with GitHub and Hugo"
 date = "2017-03-22T23:18:03Z"
 #toc = true
 #next = "/next/path"
+author = "Xinye Li"
+lightbox = true
 
 +++
 

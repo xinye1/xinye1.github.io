@@ -1,5 +1,5 @@
 BaseUrl = "https://xinye1.github.io/"
-theme = "herring-cove"
+theme = "hugo-redlounge"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"
@@ -9,29 +9,99 @@ publishdir = "public"
 author = "Xinye Li"
 title = "Xinye Fiddles"
 paginate = 5
-disqusshortname = "xinye"
 pluralizelisttitles = false
 
+
 [permalinks]
-  blog = "blog/:slug/"
+  #blog = "blog/:slug/"
 
 [params]
-  dateformfull = "Mon 2 Jan 2006 15:04:05 GMT"
-  description = "This is where I share the results of my fiddling with data, with coding, and whatever I may get into in the future."
-  copyright = "All rghts reserved, Xinye Li 2017"
-  logofile = "img/xl_avatar.jpg"
-  faviconfile = "img/favicon_tf.png"
-  highlightjs = true
-  progressively = true
-  latestpostcount = 5
-  githubName = "xinye1"
-  email = "xinyelee@gmail.com"
-  linkedinName = "xinyeli"
-  twitterName = "xinye"
-  social_banner = "img/banner_tf.jpg"
-  googleAnalyticsUserID = "UA-93764648-1"
+	#ProfilePicture: "img/xl_avatar.jpg"
+	#dateformfull = "Mon 2 Jan 2006 15:04:05 GMT"
+	description = "This is where I share the results of my fiddling with data, with coding, and whatever I may get into in the future."
+	#copyright = "All rghts reserved, Xinye Li 2017"
+	#logofile = "img/xl_avatar.jpg"
+	#faviconfile = "img/favicon_tf.png"
+	#highlightjs = true
+	#progressively = true
+	#latestpostcount = 5
+	#githubName = "xinye1"
+	#email = "xinyelee@gmail.com"
+	#linkedinName = "xinyeli"
+	#twitterName = "xinye"
+	#social_banner = "img/banner_tf.jpg"
+	googleAnalyticsUserID = "UA-93764648-1"
+	disqusShortname = 'xinye'
+	totop = true
+	
+	sidebartitle = "Xinye Fiddles"
+	sidebartagline = "This is where I share the results of my fiddling with data, with coding, and whatever I may get into in the future."
+	sidebarphoto = "/img/profile.jpg"
 
-  [params.social]
-    twitter = "xinye"
-    linkedin = "xinyeli"
-    github = "xinye1"
+	
+	[[menu.main]]
+    name = "Blog"
+    url = "/post"
+	
+	[[menu.main]]
+	name = 'Projects'
+	url = '/projects'
+	
+	[[menu.main]]
+	name = 'About'
+	url = '/about'
+	
+	[[menu.main]]
+	name = 'Licence'
+	url = '/licence'
+	
+	
+	[[menu.social]]
+	pre = "<i class='fa fa-twitter'></i>"
+    url = "http://www.twitter.com/xinye"
+    identifier = "twitter"
+	
+	[[menu.social]]
+	pre = "<i class='fa fa-linkedin'></i>"
+    url = "https://www.linkedin.com/in/xinyeli"
+    identifier = "linkedin"
+	
+	[[menu.social]]
+	pre = "<i class='fa fa-github'></i>"
+    url = "https://github.com/xinye1"
+    identifier = "github"
+	
+	[[menu.footer]]
+    name = "Blog"
+    url = "/blog"
+	
+	
+	
+	
+	# Nav links in the side bar
+	[[params.navlinks]]
+	name = "Home"
+	url = ""
+
+	[[params.navlinks]]
+	name = "About"
+	url = "about/"
+
+	[[params.navlinks]]
+	name = "Projects"
+	url = "projects/"
+
+	[[params.navlinks]]
+	name = "Blog"
+	url = "blog/"
+
+	[[params.navlinks]]
+	name = "Get in touch"
+	url = "contact/"
+
+	[params.social]
+	email        = "xinyelee@gmail.com"
+	twitter      = "https://twitter.com/xinye"
+	linkedin     = "https://www.linkedin.com/in/xinyeli"
+	github       = "https://www.github.com/xinye1"
+	rss          = "index.xml"
