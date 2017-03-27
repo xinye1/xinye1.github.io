@@ -294,6 +294,7 @@ ggplot(data = raw_votes,
   ggtitle('Remain vote distribution by Region')
 
 ```  
+
 *Note, for Northern Ireland there is only one data point (`r paste0('@ ', sprintf('%.1f', raw_votes$Pct_Remain[raw_votes$Area == 'Northern Ireland']), '%')`), hence the invisible verticle line in the density graph.*  
 
 
