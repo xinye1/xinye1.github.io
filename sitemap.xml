@@ -7,17 +7,47 @@
   </url>
   
   <url>
+    <loc>https://xinye1.github.io/projects/brexit-cartogram-leaflet/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://xinye1.github.io/about/</loc>
     <lastmod>2017-03-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/projects/2017-03-27-visualising-brexit-votes-with-leaflet-and-cartogram/</loc>
+    <loc>https://xinye1.github.io/blog/</loc>
+    <lastmod>2017-03-22T23:18:03+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/blog/</loc>
-    <lastmod>2017-03-22T23:18:03+00:00</lastmod>
+    <loc>https://xinye1.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/tags/development/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/categories/development/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/tags/golang/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/categories/golang/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -31,6 +61,12 @@
   
   <url>
     <loc>https://xinye1.github.io/projects/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
