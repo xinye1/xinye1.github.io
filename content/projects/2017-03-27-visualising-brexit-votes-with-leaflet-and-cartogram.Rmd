@@ -5,7 +5,7 @@ date: '2017-03-27'
 slug: brexit-cartogram-leaflet
 categories:
   - Projects
-tags:
+Tags:
   - ggplot2
   - cartogram
   - leaflet
@@ -14,13 +14,8 @@ tags:
   - hexagon map
   - brexit
   - visualisation
-Categories:
-  - Development
-  - GoLang
-Tags:
-  - Development
-  - golang
-menu: main
+menu: projects
+descritpion: 'A tutorial on manipulating shapefiles, using `cartogram` and `leaftlet` packages with R'
 ---
 
 On the eve of triggering Article 50, I think it's semi-fitting to revisit the Brexit results.
