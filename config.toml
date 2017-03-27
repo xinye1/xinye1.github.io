@@ -9,7 +9,7 @@ publishdir = "public"
 author = "Xinye Li"
 title = "Xinye Fiddles"
 paginate = 5
-disqusshortname = "xinye"
+disqusshortname = "xinyeli"
 pluralizelisttitles = false
 
 [permalinks]
