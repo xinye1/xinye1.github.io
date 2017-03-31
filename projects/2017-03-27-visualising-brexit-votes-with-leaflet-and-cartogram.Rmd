@@ -262,7 +262,7 @@ There are various options for creating a cartogram map, notably [`Rcartogram`](h
 ```{r carto_vis1, message=FALSE, warning=FALSE}
 
 # Plot cartogram
-library(cartogram)
+pacman::p_load(cartogram)
 carto <- cartogram(la_bng_new, 'Valid_Votes')
 carto_df <- carto %>% tidy(region = 'LAD12NM')
 carto_df <- carto_df %>%
@@ -294,6 +294,7 @@ ggplot(data = raw_votes,
   ggtitle('Remain vote distribution by Region')
 
 ```  
+
 *Note, for Northern Ireland there is only one data point (`r paste0('@ ', sprintf('%.1f', raw_votes$Pct_Remain[raw_votes$Area == 'Northern Ireland']), '%')`), hence the invisible verticle line in the density graph.*  
 
 
@@ -318,9 +319,9 @@ Taking advantage of Javascript we can include much information dynamically, e.g.
 
 #### Colouring for votes percentage
 
-There is a wide range of votes percentage (% of Remain from 24% to 96%), This should be differentiated by colours. The last thing we need to take care off is a small tweak on the scaler for Gibraltar. Gibraltar being a British overseas territory (with a population of just over 30,000, located at the bottom of Spain) naturally voted overwhelmingly Remain (yes, that one with 96%). Allowing the outlier to be part of the colour palette would push everything close hence showing less disguishable colours, and for this reason, we are going to make the outlier value the same as the second highest (Lamberth at 79%, and by now you probably know where I stand on the [McCandless vs. Tufte debate](https://www.themediaflow.com/blog/making-great-infographics-the-data-vs-design-debate)).
+There is a wide range of votes percentage (% of Remain from 24% to 96%), This should be differentiated by colours. The last thing we need to take care off is a small tweak on the scaler for Gibraltar. Gibraltar being a British overseas territory (with a population of just over 30,000, located at the bottom of Spain) naturally voted overwhelmingly Remain (yes, that one with 96%). Allowing the outlier to be part of the colour palette would push everything close together hence showing less disguishable colours, and for this reason, we are going to make the outlier value the same as the second highest (Lamberth at 79%, and by now you probably know where I stand on the [McCandless vs. Tufte debate](https://www.themediaflow.com/blog/making-great-infographics-the-data-vs-design-debate)).
 
-```{r carto_leaflet, message=FALSE, warning=FALSE}
+```{r carto_leaflet, message=FALSE, warning=FALSE, fig.width=10, fig.height=10}
 pacman::p_load(leaflet)
 cols1 <- c("#ad0037", "#004080")
 # Transforming the scaling factor Valid_Votes
@@ -364,54 +365,88 @@ leaflet(carto_x, options = leafletOptions(crs = epsg4326)) %>%
     opacity = 1)
 ```
 
-That is not too bad. Why don't we plot a ggplotly version
+That is not too bad. This makes it easy for us to dig into some insight:
 
-```{r carto_ggplot_v2, message=FALSE, warning=FALSE}
-carto_x_df <- carto_x %>% tidy(region = 'LAD12NM')
-carto_x_df <- carto_x_df %>%
-  left_join(
-    data.frame(id = as.character(la_bng_new$LAD12NM),
-               Result = as.factor(la_bng_new$Result),
-               Pct_Remain = la_bng_new$Pct_Remain,
-               stringsAsFactors = F))
+1. Most of the London LAs voted overwhelmingly Remain (as we have learned previously)
+2. The largest contributing Leave LAs (in total votes size and proportion) are around Wakefield, Doncaster or Yorkshire, and Dudley, Sandwell and Walsall of the West Midlands.
+3. Oxbridge clearly stands out with a clear opinion about Brexit.
+4. Northern Ireland and Gibraltar both have distinctive characteristics (NI having one of the highest vote counts and GI features the highest Remain votes), so they are well worth the effort of creating the polygons.
+5. Among the largest LAs in valid votes (>= 140,000, ~top quartile), the biggest swinging ($Remain <= 35\%$ or $>= 65\%$) LAs can been spotted easily on the map, but also summarised as follows:
+```{r top_kable, fig.width=6, message=FALSE, warning=FALSE, results='asis'}
+pacman::p_load(knitr)
+top_las <- data.frame(
+  LA = carto_x@data$LAD12NM,
+  Valid_Votes = carto_x@data$Valid_Votes,
+  Pct_Remain = carto_x@data$Pct_Remain,
+  Result = carto_x@data$Result) %>%
+  filter(Valid_Votes >= 140000) %>%
+  arrange(desc(Pct_Remain)) %>%
+  filter(abs(Pct_Remain - 50) >= 15)
+top_las$Valid_Votes <- formatC(top_las$Valid_Votes, format = 'd', big.mark = ',')
+top_las$Pct_Remain <- formatC(top_las$Pct_Remain, format = 'f', digits = 1)
+print(kable(top_las, format = 'html',
+      col.names = c('Local Authority', 'Valid Votes', '% of Remain', 'Result'),
+      align = 'lccc',
+      pad = 1))
+```  
+
+
+Why don't we plot a portable ggplot for the road
+
+```{r carto_ggplot_v2, message=FALSE, warning=FALSE, fig.width=10, fig.height=12}
+# Before converting shapefile to a data frame, let's tweak some of the variables
 # Rescaling Pct_Remain
-carto_x_df$Pct_Remain_2 <- carto_x_df$Pct_Remain
-carto_x_df$Pct_Remain_2[carto_x_df$id == 'Gibraltar'] <- carto_x_df$Pct_Remain_2[carto_x_df$id == 'Lambeth']
-
-# Re-order the data frame so that legend on the map follow logical order
-carto_x_df <- carto_x_df[order(carto_x_df$Pct_Remain_2), ]
+carto_x@data$Pct_Remain_2 <- carto_x@data$Pct_Remain
+carto_x@data$Pct_Remain_2[carto_x@data$LAD12NM == 'Gibraltar'] <- carto_x@data$Pct_Remain_2[carto_x@data$LAD12NM == 'Lambeth']
 
 # Create the banding of Remain percentage
-col_vals <- carto_x_df$Pct_Remain_2
+col_vals <- carto_x@data$Pct_Remain_2
 min_pct <- 50 - max(abs(col_vals - 50))
 max_pct <- 50 + max(abs(col_vals - 50))
-carto_x_df$pct_banded <- cut(col_vals, seq(min_pct, max_pct, (max_pct - min_pct) / 11))
+carto_x@data$pct_banded <- cut(col_vals, seq(min_pct, max_pct, (max_pct - min_pct) / 11))
 
 # Make the legend labels prettier
-pct_labs <- as.character(carto_x_df$pct_banded)
+pct_labs <- as.character(carto_x@data$pct_banded)
+# Include Gibraltar's figure back to the legend label, otherwise it would be misleading
+pct_labs[pct_labs == '(73.4,78.6]'] <- '(73.4,95.9]'
 pct_labs <- substr(pct_labs, 2, nchar(pct_labs) - 1)
 tmp <- sapply(pct_labs, function(x) strsplit(x, split = ','))
 pct_labs <- sapply(tmp,
   function(x) paste0(
     formatC(as.numeric(x[1]), digits = 1, format = 'f'), '% - ',
     formatC(as.numeric(x[2]), digits = 1, format = 'f'), '%'))
-carto_x_df$pct_banded <- as.factor(pct_labs)
+carto_x@data$pct_banded <- as.factor(pct_labs)
 
+# Merge the votes data back to the map data frame
+carto_x_df <- carto_x %>% tidy(region = 'LAD12NM')
+carto_x_df <- carto_x_df %>%
+  left_join(
+    data.frame(id = as.character(carto_x@data$LAD12NM),
+               Result = as.factor(carto_x@data$Result),
+               Pct_Remain = carto_x@data$Pct_Remain_2,
+               Pct_band = carto_x@data$pct_banded,
+               stringsAsFactors = F))
+
+# Re-order the data frame so that legend on the map follow logical order
+carto_x_df <- carto_x_df[order(carto_x_df$Pct_Remain), ]
+
+# Plot
 ggplot(data = carto_x_df, aes(x = long, y = lat, group = id)) +
   theme_bw() + coord_fixed() + 
   theme_nothing(legend = TRUE) +
-  ggtitle('EU Referendum 2016 Results Cartogram') +
-  geom_polygon(aes(fill = pct_banded), colour = 'gray40', size = 0.2) +
+  ggtitle('EU Referendum 2016 Results Hexagon Cartogram') +
+  theme(plot.title = element_text(hjust = 0.5, size = rel(2))) +
+  geom_polygon(aes(fill = Pct_band), colour = 'gray40', size = 0.2) +
   scale_fill_brewer(
     name = 'Remain votes',
     type = 'div', 
     palette = 'RdBu',
-    breaks = carto_x_df$pct_banded,
-    labels = carto_x_df$pct_banded)
+    breaks = carto_x_df$Pct_band,
+    labels = carto_x_df$Pct_band)
 ```
 
 
 There we have it. All the source code is in my [repo](https://github.com/xinye1/brexit). Feel free to comment / pick bones.
 
 ### Other cartogram related packages
-* [`topogRam`](https://github.com/pvictor/topogRam) - a `d3.js` based package.
+* [`topogRam`](https://github.com/pvictor/topogRam) - a `d3.js` based package
