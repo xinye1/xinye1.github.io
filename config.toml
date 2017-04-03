@@ -31,7 +31,7 @@ disqusShortname = 'xinyeli'
 	#linkedinName = "xinyeli"
 	#twitterName = "xinye"
 	#social_banner = "img/banner_tf.jpg"
-	googleAnalyticsUserID = "UA-93764648-1"
+	gaid = "UA-93764648-1"
 	totop = true
 	
 	sidebartitle = "Xinye Fiddles"
