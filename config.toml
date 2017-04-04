@@ -3,14 +3,14 @@ theme = "hugo-redlounge"
 builddrafts = true
 canonifyurls = true
 contentdir = "content"
-languageCode = "en-GB"
+languageCode = "en-gb"
 layoutdir = "layouts"
 publishdir = "public"
 author = "Xinye Li"
 title = "Xinye Fiddles"
 paginate = 5
 pluralizelisttitles = false
-disqusShortname = 'xinyeli'
+disqusShortname = 'lixinye'
 
 
 [permalinks]
@@ -22,7 +22,7 @@ disqusShortname = 'xinyeli'
 	description = "This is where I share the results of my fiddling with data, with coding, and whatever I may get into in the future."
 	#copyright = "All rghts reserved, Xinye Li 2017"
 	#logofile = "img/xl_avatar.jpg"
-	#faviconfile = "img/favicon_tf.png"
+	faviconfile = "img/favicon.png"
 	#highlightjs = true
 	#progressively = true
 	#latestpostcount = 5
@@ -40,8 +40,8 @@ disqusShortname = 'xinyeli'
 
 	
 	[[menu.main]]
-    name = "Blog"
-    url = "/post"
+  name = "Blog"
+  url = "/post"
 	
 	[[menu.main]]
 	name = 'Projects'
