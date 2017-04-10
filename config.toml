@@ -10,7 +10,7 @@ author = "Xinye Li"
 title = "Xinye Fiddles"
 paginate = 5
 pluralizelisttitles = false
-disqusShortname = 'lixinye'
+disqusShortname = "lixinye"
 
 
 [permalinks]
