@@ -160,7 +160,15 @@
 			
 				<div class="post-categories">
 				
-					<a class="post-category post-category-blogging" href="https://xinye1.github.io//categories/blogging">blogging</a>
+					<a class="post-category post-category-rpushbullet" href="https://xinye1.github.io//categories/rpushbullet">RPushbullet</a>
+				
+					<a class="post-category post-category-linux" href="https://xinye1.github.io//categories/linux">Linux</a>
+				
+					<a class="post-category post-category-web-scraping" href="https://xinye1.github.io//categories/web-scraping">web scraping</a>
+				
+					<a class="post-category post-category-fun" href="https://xinye1.github.io//categories/fun">fun</a>
+				
+					<a class="post-category post-category-productivity" href="https://xinye1.github.io//categories/productivity">productivity</a>
 				
 				</div>
 			
@@ -213,11 +221,11 @@ book_title &lt;- url %&gt;%
 <p>There is a few options to send information from the computer to the phone, including emailing packages such as <a href="https://cran.r-project.org/web/packages/sendmailR/index.html">sendemailR</a>, <a href="https://github.com/jimhester/gmailr">gmailr</a> and <a href="https://cran.r-project.org/web/packages/notifyR/index.html">notifyR</a>. The first two focus on automated reporting using email, and they could be problematic when it comes to security settings such as two-step authentication; notifyR though seems like a great solution that is very easy to set up and works very well, however it uses the <a href="https://pushover.net/">Pushover</a>, and the mobile app is not free after seven days of trial, at the same time offers very limited functionality beyond pushing notifications.</p>
 <p>The best solution is naturally Pushbullet. It is a well established web service that can push notifications between the smartphone and the computer among other functions (e.g. sending SMS messages via the computer). We are interested in pushing the book title to the phone, and this can be implemented using the <a href="https://github.com/eddelbuettel/rpushbullet">RPushbullet package</a> by the briliant <a href="http://dirk.eddelbuettel.com/">Dirk Eddelbuettel</a> who is better known for <a href="https://github.com/RcppCore/Rcpp">Rcpp</a> among other open source contributions.</p>
 <p>Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone:</p>
-<p><img src="../img/pb_phone.png" alt="pb_phone" width="500"></p>
+<p><img src="img/r_notifications/pb_phone.png" alt="pb_phone" width="500"></p>
 <p>And download the browser extension to set up on the computer:</p>
-<p><img src="../img/pb_computer.png" alt="pb_computer" width="500"></p>
+<p><img src="img/r_notifications/pb_computer.png" alt="pb_computer" width="500"></p>
 <p>And the last thing to do on the website is to go to the <a href="https://www.pushbullet.com/#settings/account">account page</a> and grab an Access Token after clicking on the “Create Access Token” button:</p>
-<p><img src="../img/pb_account.png" alt="pb_computer" width="500"></p>
+<p><img src="img/r_notifications/pb_account.png" alt="pb_computer" width="500"></p>
 <p>The <code>RPushbullet</code> package uses a JSON file <code>~/.rpushbullet.json</code> configuration file to get the account information. The account is identify by the Access Token from the website account page, and the connected devices come with Token. The below code automates the process.</p>
 <pre class="r"><code>library(RPushbullet)
 pbSetup(apikey = &#39;your_access_token&#39;)</code></pre>
@@ -226,7 +234,7 @@ pbSetup(apikey = &#39;your_access_token&#39;)</code></pre>
 <pre class="r"><code>pbPost(&quot;link&quot;, title=&quot;Today&#39;s free book&quot;,
        url = url, body = book_title) </code></pre>
 <p>There’s the notification that you made yourself, it’s a whole new world!</p>
-<p><img src="../img/notification.png" alt="notification" width="500"></p>
+<p><img src="img/r_notifications/notification.png" alt="notification" width="500"></p>
 <p>It is easy to imagine how useful this is for running script on a remote server, e.g. if a script takes longer than you care to keep checking whether it has finished, it’s an elegant to be notified - just add the snippet at the end of the script. In fact that’s the majority of the use cases I see, definitely worth a try.</p>
 </div>
 <div id="scheduling" class="section level2">
@@ -318,15 +326,7 @@ $ chmod +x script.R</code></pre>
 				<div class="tags-list">
 					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
 					
-	                <a class="post-tag post-tag-rpushbullet" href="https://xinye1.github.io//tags/rpushbullet">RPushbullet</a>,
-	                
-	                <a class="post-tag post-tag-linux" href="https://xinye1.github.io//tags/linux">Linux</a>,
-	                
-	                <a class="post-tag post-tag-web-scraping" href="https://xinye1.github.io//tags/web-scraping">web scraping</a>,
-	                
-	                <a class="post-tag post-tag-fun" href="https://xinye1.github.io//tags/fun">fun</a>,
-	                
-	                <a class="post-tag post-tag-productivity" href="https://xinye1.github.io//tags/productivity">productivity</a>,
+	                <a class="post-tag post-tag-blogging" href="https://xinye1.github.io//tags/blogging">blogging</a>,
 	                
 				</div>
 			
