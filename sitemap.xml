@@ -7,6 +7,11 @@
   </url>
   
   <url>
+    <loc>https://xinye1.github.io/projects/r_notifications/</loc>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://xinye1.github.io/projects/brexit-cartogram-leaflet/</loc>
     <lastmod>2017-03-27T00:00:00+00:00</lastmod>
   </url>
@@ -19,6 +24,12 @@
   <url>
     <loc>https://xinye1.github.io/blog/</loc>
     <lastmod>2017-03-22T23:18:03+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/categories/blogging/</loc>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -36,6 +47,12 @@
   
   <url>
     <loc>https://xinye1.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/tags/fun/</loc>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -72,6 +89,18 @@
   </url>
   
   <url>
+    <loc>https://xinye1.github.io/tags/linux/</loc>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/tags/productivity/</loc>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://xinye1.github.io/categories/projects/</loc>
     <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -79,7 +108,13 @@
   
   <url>
     <loc>https://xinye1.github.io/projects/</loc>
-    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/tags/rpushbullet/</loc>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -97,6 +132,12 @@
   <url>
     <loc>https://xinye1.github.io/tags/visualisation/</loc>
     <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/tags/web-scraping/</loc>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

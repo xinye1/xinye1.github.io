@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Scraping on Xinye Fiddles</title>
+    <link>https://xinye1.github.io/tags/web-scraping/index.xml</link>
+    <description>Recent content in Web Scraping on Xinye Fiddles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <atom:link href="https://xinye1.github.io/tags/web-scraping/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Send Notifications to Mobile using R</title>
+      <link>https://xinye1.github.io/projects/r_notifications/</link>
+      <pubDate>Mon, 17 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinye1.github.io/projects/r_notifications/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;The very active development of R means that there are fewer and fewer tasks that cannot be accomplished with R. Today let’s schedule a custom push notification for the smartphone.&lt;/p&gt;
+&lt;div id=&#34;why&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Why&lt;/h1&gt;
+&lt;p&gt;There are two motivations:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;There are websites that offer free stuff everyday. I have been taking the advantage of some free books but freqently find myself missing some that I would be quite interested simply because I forget to check the website (there are probably more socially acceptable ways like following them on twitter, but what’s the fun in that?). I therefore want to have a daily notification on the phone that shows the book title, from which I will decide if I would like to go to the website and claim it.&lt;/li&gt;
+&lt;li&gt;At work I may be required to implement R script automation, this makes a perfect practice case.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-plan&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The plan&lt;/h1&gt;
+&lt;p&gt;Here are the three simple steps:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We will be using R to scrape the book title off the webpage, which luckily for us has a static URL - for this, we use &lt;a href=&#34;https://github.com/hadley/rvest&#34;&gt;rvest&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We then find a way to push the book title to the phone - for this, we use the popular web service &lt;a href=&#34;https://www.pushbullet.com/&#34;&gt;Pushbullet&lt;/a&gt;, and yes, there’s a package for that: &lt;a href=&#34;https://github.com/eddelbuettel/rpushbullet&#34;&gt;RPushbullet&lt;/a&gt; that interface .&lt;/li&gt;
+&lt;li&gt;The whole process can then be scheduled to run everyday from a server - we’ll run a &lt;a href=&#34;https://en.wikipedia.org/wiki/Cron&#34;&gt;&lt;code&gt;cron&lt;/code&gt;&lt;/a&gt; job on AWS.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-walkthrough&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The walkthrough&lt;/h1&gt;
+&lt;div id=&#34;scraping-the-book-title&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Scraping the book title&lt;/h2&gt;
+&lt;p&gt;Out of caution I contacted the website for which I intend to use this method, as its Terms and Conditions don’t specify the knowledge sharing of web scraping on the site. Until I have explicit permission from them I will stick to a non-specific example for now.&lt;/p&gt;
+&lt;p&gt;Hadley Wickham’s &lt;code&gt;rvest&lt;/code&gt; package is the &lt;a href=&#34;https://www.crummy.com/software/BeautifulSoup/&#34;&gt;Beautiful Soup&lt;/a&gt; for R, the &lt;em&gt;go to&lt;/em&gt; package for web scraping. There are plenty of tutorials on the web, so I shall simply lay down the snippet here for completeness:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pacman::p_load(rvest, stringr)
+
+url &amp;lt;- &amp;#39;url.of.the/target/website&amp;#39;
+selector &amp;lt;- &amp;#39;#CSS &amp;gt; selector &amp;gt; for &amp;gt; the &amp;gt; element&amp;#39;
+book_title &amp;lt;- url %&amp;gt;%
+  read_html %&amp;gt;%
+  html_node(selector) %&amp;gt;%
+  html_text %&amp;gt;%
+  str_trim&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;push-notifications&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Push notifications&lt;/h2&gt;
+&lt;p&gt;There is a few options to send information from the computer to the phone, including emailing packages such as &lt;a href=&#34;https://cran.r-project.org/web/packages/sendmailR/index.html&#34;&gt;sendemailR&lt;/a&gt;, &lt;a href=&#34;https://github.com/jimhester/gmailr&#34;&gt;gmailr&lt;/a&gt; and &lt;a href=&#34;https://cran.r-project.org/web/packages/notifyR/index.html&#34;&gt;notifyR&lt;/a&gt;. The first two focus on automated reporting using email, and they could be problematic when it comes to security settings such as two-step authentication; notifyR though seems like a great solution that is very easy to set up and works very well, however it uses the &lt;a href=&#34;https://pushover.net/&#34;&gt;Pushover&lt;/a&gt;, and the mobile app is not free after seven days of trial, at the same time offers very limited functionality beyond pushing notifications.&lt;/p&gt;
+&lt;p&gt;The best solution is naturally Pushbullet. It is a well established web service that can push notifications between the smartphone and the computer among other functions (e.g. sending SMS messages via the computer). We are interested in pushing the book title to the phone, and this can be implemented using the &lt;a href=&#34;https://github.com/eddelbuettel/rpushbullet&#34;&gt;RPushbullet package&lt;/a&gt; by the briliant &lt;a href=&#34;http://dirk.eddelbuettel.com/&#34;&gt;Dirk Eddelbuettel&lt;/a&gt; who is better known for &lt;a href=&#34;https://github.com/RcppCore/Rcpp&#34;&gt;Rcpp&lt;/a&gt; among other open source contributions.&lt;/p&gt;
+&lt;p&gt;Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../img/pb_phone.png&#34; alt=&#34;pb_phone&#34; width=&#34;500&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And download the browser extension to set up on the computer:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../img/pb_computer.png&#34; alt=&#34;pb_computer&#34; width=&#34;500&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And the last thing to do on the website is to go to the &lt;a href=&#34;https://www.pushbullet.com/#settings/account&#34;&gt;account page&lt;/a&gt; and grab an Access Token after clicking on the “Create Access Token” button:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../img/pb_account.png&#34; alt=&#34;pb_computer&#34; width=&#34;500&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;RPushbullet&lt;/code&gt; package uses a JSON file &lt;code&gt;~/.rpushbullet.json&lt;/code&gt; configuration file to get the account information. The account is identify by the Access Token from the website account page, and the connected devices come with Token. The below code automates the process.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(RPushbullet)
+pbSetup(apikey = &amp;#39;your_access_token&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When asked &lt;code&gt;Select a default device (0 for none):&lt;/code&gt;, select the phone as the default device, as this will simplify a step later.&lt;/p&gt;
+&lt;p&gt;Now we can test pushing a notification:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pbPost(&amp;quot;link&amp;quot;, title=&amp;quot;Today&amp;#39;s free book&amp;quot;,
+       url = url, body = book_title) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There’s the notification that you made yourself, it’s a whole new world!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../img/notification.png&#34; alt=&#34;notification&#34; width=&#34;500&#34;&gt;&lt;/p&gt;
+&lt;p&gt;It is easy to imagine how useful this is for running script on a remote server, e.g. if a script takes longer than you care to keep checking whether it has finished, it’s an elegant to be notified - just add the snippet at the end of the script. In fact that’s the majority of the use cases I see, definitely worth a try.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;scheduling&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Scheduling&lt;/h2&gt;
+&lt;p&gt;Now it’s time to automate the notification, afterall there’s no point sitting there everyday and pushing the button to run the R code, is there?&lt;/p&gt;
+&lt;div id=&#34;server&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Server&lt;/h3&gt;
+&lt;p&gt;First of all we need to have a constantly running server. There are plenty of commercial cloud hosting services, the most ubiquitous being the Amazon Web Services EC2, and it is particularly attractive because of the ‘free tier’ we can use for this project. The caveat is that it’s only free for 12 months. After that you can either spin up another EC2 free tier instance to set up in the same way, or migrate to a Raspberry Pi (at around £30 per slice it’s about the same price as the cheapest EC2 “&lt;a href=&#34;https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/&#34;&gt;t2.nano&lt;/a&gt;” instance for a year, but you can keep the former as long as you shall live).&lt;/p&gt;
+&lt;p&gt;For our project we’ll choose AWS, as it allows you to start straight away. &lt;a href=&#34;http://ipub.com/aws/&#34;&gt;Here&lt;/a&gt; is a very good tutorial to help you set up your R environment on AWS EC2.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;scheduler&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Scheduler&lt;/h3&gt;
+&lt;p&gt;With all Liux systems comes with a utility called &lt;code&gt;cron&lt;/code&gt;. It is driven by a &lt;code&gt;crontab&lt;/code&gt; (cron table) file, a configuration file that specifies shell commands to run periodically on a given schedule. To edit this file, run:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;$ crontab -e&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each line of a crontab file represents a job, and looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ┌──────── minute (0 - 59)
+ │ ┌──────── hour (0 - 23)
+ │ │ ┌──────── day of month (1 - 31)
+ │ │ │ ┌──────── month (1 - 12)
+ │ │ │ │ ┌──────── day of week (0 - 6) (Sunday to Saturday;
+ │ │ │ │ │                                   7 is also Sunday)
+ * * * * *  command to execute&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The syntax of each line expects a cron expression made of five fields, followed by a shell command to execute.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;While normally the job is executed when the time/date specification fields all match the current time and date, there is one exception: if both “day of month” (field 3) and “day of week” (field 5) are restricted (not &lt;code&gt;*&lt;/code&gt;), then one or both must match the current day.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# Clears the Apache error log at one minute past midnight (00:01) every day
+1 0 * * *  printf &amp;gt; /var/log/apache/error_log
+
+# Runs a shell program called export_dump.sh at 23:45 (11:45 PM) every Saturday
+45 23 * * 6 /home/oracle/scripts/export_dump.sh&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For our project, we need to run the R code everyday at, say, 9am, so here is the datetime part:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;# Run at 9:00 AM on any day of the month, any month and any day of the week
+0 9 * * *&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now let’s work out the command to run.&lt;/p&gt;
+&lt;p&gt;The easest way to run an R script in the command line interface (CLI) is using the command &lt;code&gt;Rscript&lt;/code&gt;, e.g.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;$ Rscript script.R&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Alternatively if the R script is executable then it can be called directly:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;$ chmod +x script.R   # make the script executable
+$ ./script.R          # the ./ part is necessary&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The latter is a more streamline approach, as the command is simply the file name, although the file needs to be referenced by the full directory (e.g. &lt;code&gt;/home/ubuntu/projects/script.R&lt;/code&gt;, assumg the script is saved under &lt;code&gt;projects&lt;/code&gt; folder, and &lt;code&gt;ubuntu&lt;/code&gt; is the default username on the AWS free tier Ubuntu instance). Therefore the &lt;code&gt;crontab&lt;/code&gt; should be:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;0 9 * * * /home/ubuntu/projects/script.R&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The last thing to note is that using the executable script requires specifying the &lt;em&gt;interpreter directive&lt;/em&gt; (a.k.a. &lt;em&gt;shebang&lt;/em&gt;) at the top of the script &lt;code&gt;#!/usr/bin/env Rscript&lt;/code&gt;, this tells the CLI which interpreter to use for the script.&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;everything-together&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Everything together&lt;/h1&gt;
+&lt;p&gt;Now let’s put everything together:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Create an R script called script.R:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#!/usr/bin/env Rscript
+pacman::p_load(rvest, stringr, RPushbullet)
+
+url &amp;lt;- &amp;#39;url.of.the/target/website&amp;#39;
+selector &amp;lt;- &amp;#39;#CSS &amp;gt; selector &amp;gt; for &amp;gt; the &amp;gt; element&amp;#39;
+book_title &amp;lt;- url %&amp;gt;%
+  read_html %&amp;gt;%
+  html_node(selector) %&amp;gt;%
+  html_text %&amp;gt;%
+  str_trim
+
+pbPost(&amp;quot;link&amp;quot;, title=&amp;quot;Today&amp;#39;s free book&amp;quot;,
+       url = url, body = book_title) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Save the script in &lt;code&gt;/projects&lt;/code&gt; folder under the home directory (&lt;code&gt;~&lt;/code&gt;).&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Make the script executable:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;$ cd ~/projects
+$ chmod +x script.R&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Create a cron job by running &lt;code&gt;crontab -e&lt;/code&gt;, and at the bottom of the file insert the line:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;0 9 * * * /home/ubuntu/projects/script.R&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now enjoy the custom notifications that contribute to your well organised life!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;The time is based on the system &lt;a href=&#34;https://en.wikipedia.org/wiki/Cron#Timezone_handling&#34;&gt;time zone&lt;/a&gt;&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/a/18306656&#34; class=&#34;uri&#34;&gt;http://stackoverflow.com/a/18306656&lt;/a&gt;&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
