@@ -1,5 +1,5 @@
 ---
-title: Send Notifications to Mobile using R
+title: Send Daily Reminder to Mobile using R
 author: Xinye Li
 date: '2017-04-17'
 slug: r_notifications
@@ -12,7 +12,7 @@ Categories:
   - fun
   - productivity
 menu: projects
-description: 'A quick post to demostrate scheduling of mobile phone notifications using R'
+description: 'A quick post to demostrate scheduling of daily reminder mobile phone notifications using R'
 ---
 
 The very active development of R means that there are fewer and fewer tasks that cannot be accomplished with R. Today let's schedule a custom push notification for the smartphone.
@@ -21,7 +21,7 @@ The very active development of R means that there are fewer and fewer tasks that
 
 There are two motivations:
 
-1. There are websites that offer free stuff everyday. I have been taking the advantage of some free books but freqently find myself missing some that I would be quite interested simply because I forget to check the website (there are probably more socially acceptable ways like following them on twitter, but what's the fun in that?). I therefore want to have a daily notification on the phone that shows the book title, from which I will decide if I would like to go to the website and claim it.
+1. There are websites that offer free stuff everyday. I have been taking the advantage of some free books but freqently find myself missing some that I would be quite interested in reading because I forget to check the website (there are probably more socially acceptable ways like following them on twitter, but what's the fun in that?). I therefore want to have a daily notification on the phone that shows the book title, from which I will decide if I would like to go to the website and claim it.
 2. At work I may be required to implement R script automation, this makes a perfect practice case.
 
 # The plan
@@ -58,17 +58,7 @@ There is a few options to send information from the computer to the phone, inclu
 
 The best solution is naturally Pushbullet. It is a well established web service that can push notifications between the smartphone and the computer among other functions (e.g. sending SMS messages via the computer). We are interested in pushing the book title to the phone, and this can be implemented using the [RPushbullet package](https://github.com/eddelbuettel/rpushbullet) by the briliant [Dirk Eddelbuettel](http://dirk.eddelbuettel.com/) who is better known for [Rcpp](https://github.com/RcppCore/Rcpp) among other open source contributions.
 
-Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone:
-
-<img src="img/r_notifications/pb_phone.png" alt="pb_phone" width="500">
-
-And download the browser extension to set up on the computer:
-
-<img src="img/r_notifications/pb_computer.png" alt="pb_computer" width="500">
-
-And the last thing to do on the website is to go to the [account page](https://www.pushbullet.com/#settings/account) and grab an Access Token after clicking on the "Create Access Token" button:
-
-<img src="img/r_notifications/pb_account.png" alt="pb_computer" width="500">
+Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone, and download the browser extension to set up on the computer. And the last thing to do on the website is to go to the [account page](https://www.pushbullet.com/#settings/account) and grab an Access Token after clicking on the "Create Access Token" button.
 
 The `RPushbullet` package uses a JSON file `~/.rpushbullet.json` configuration file to get the account information. The account is identify by the Access Token from the website account page, and the connected devices come with Token. The below code automates the process.
 
@@ -87,8 +77,6 @@ pbPost("link", title="Today's free book",
 ```
 
 There's the notification that you made yourself, it's a whole new world!
-
-<img src="img/r_notifications/notification.png" alt="notification" width="500">
 
 It is easy to imagine how useful this is for running script on a remote server, e.g. if a script takes longer than you care to keep checking whether it has finished, it's an elegant to be notified - just add the snippet at the end of the script. In fact that's the majority of the use cases I see, definitely worth a try.
 
