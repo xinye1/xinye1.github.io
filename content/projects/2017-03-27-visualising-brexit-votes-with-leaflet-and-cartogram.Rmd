@@ -4,7 +4,7 @@ author: Xinye Li
 date: '2017-03-27'
 slug: brexit-cartogram-leaflet
 categories:
-  - Projects
+  - Data science
 Tags:
   - ggplot2
   - cartogram
