@@ -3,9 +3,9 @@ title: Send Daily Reminder to Mobile using R
 author: Xinye Li
 date: '2017-04-17'
 slug: r_notifications
-Tags:
-  - blogging
 Categories:
+  - Fun stuff
+Tags:
   - RPushbullet
   - Linux
   - web scraping

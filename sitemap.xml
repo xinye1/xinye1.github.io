@@ -28,12 +28,6 @@
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/tags/blogging/</loc>
-    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://xinye1.github.io/tags/brexit/</loc>
     <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -51,7 +45,19 @@
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/categories/fun/</loc>
+    <loc>https://xinye1.github.io/categories/data-science/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/tags/fun/</loc>
+    <lastmod>2017-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://xinye1.github.io/categories/fun-stuff/</loc>
     <lastmod>2017-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -89,20 +95,14 @@
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/categories/linux/</loc>
+    <loc>https://xinye1.github.io/tags/linux/</loc>
     <lastmod>2017-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/categories/productivity/</loc>
+    <loc>https://xinye1.github.io/tags/productivity/</loc>
     <lastmod>2017-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://xinye1.github.io/categories/projects/</loc>
-    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -113,7 +113,7 @@
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/categories/rpushbullet/</loc>
+    <loc>https://xinye1.github.io/tags/rpushbullet/</loc>
     <lastmod>2017-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -136,7 +136,7 @@
   </url>
   
   <url>
-    <loc>https://xinye1.github.io/categories/web-scraping/</loc>
+    <loc>https://xinye1.github.io/tags/web-scraping/</loc>
     <lastmod>2017-04-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
