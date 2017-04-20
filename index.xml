@@ -102,7 +102,7 @@ git worktree add -B master public origin/master
 &lt;h1&gt;Why&lt;/h1&gt;
 &lt;p&gt;There are two motivations:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;There are websites that offer free stuff everyday. I have been taking the advantage of some free books but freqently find myself missing some that I would be quite interested in reading because I forget to check the website (there are probably more socially acceptable ways like following them on twitter, but what’s the fun in that?). I therefore want to have a daily notification on the phone that shows the book title, from which I will decide if I would like to go to the website and claim it.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.packtpub.com/&#34;&gt;Packt Publishing&lt;/a&gt; sell great tech related books, and even better, they also offer a free book everyday on this page &lt;a href=&#34;https://www.packtpub.com/packt/offers/free-learning&#34; class=&#34;uri&#34;&gt;https://www.packtpub.com/packt/offers/free-learning&lt;/a&gt;. I have been taking the advantage of some free books but freqently find myself missing some that I would be quite interested simply because I forget to check the website (there are probably more socially acceptable ways like following them on twitter, but what’s the fun in that?). I therefore want to have a daily notification on the phone that shows the book title, from which I will decide if I would like to go to the website and claim it.&lt;/li&gt;
 &lt;li&gt;At work I may be required to implement R script automation, this makes a perfect practice case.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
@@ -119,12 +119,11 @@ git worktree add -B master public origin/master
 &lt;h1&gt;The walkthrough&lt;/h1&gt;
 &lt;div id=&#34;scraping-the-book-title&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Scraping the book title&lt;/h2&gt;
-&lt;p&gt;Out of caution I contacted the website for which I intend to use this method, as its Terms and Conditions don’t specify the knowledge sharing of web scraping on the site. Until I have explicit permission from them I will stick to a non-specific example for now.&lt;/p&gt;
 &lt;p&gt;Hadley Wickham’s &lt;code&gt;rvest&lt;/code&gt; package is the &lt;a href=&#34;https://www.crummy.com/software/BeautifulSoup/&#34;&gt;Beautiful Soup&lt;/a&gt; for R, the &lt;em&gt;go to&lt;/em&gt; package for web scraping. There are plenty of tutorials on the web, so I shall simply lay down the snippet here for completeness:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pacman::p_load(rvest, stringr)
 
-url &amp;lt;- &amp;#39;url.of.the/target/website&amp;#39;
-selector &amp;lt;- &amp;#39;#CSS &amp;gt; selector &amp;gt; for &amp;gt; the &amp;gt; element&amp;#39;
+url &amp;lt;- &amp;#39;https://www.packtpub.com/packt/offers/free-learning&amp;#39;
+selector &amp;lt;- &amp;#39;#deal-of-the-day &amp;gt; div &amp;gt; div &amp;gt; div.dotd-main-book-summary.float-left &amp;gt; div.dotd-title &amp;gt; h2&amp;#39;
 book_title &amp;lt;- url %&amp;gt;%
   read_html %&amp;gt;%
   html_node(selector) %&amp;gt;%
@@ -135,15 +134,21 @@ book_title &amp;lt;- url %&amp;gt;%
 &lt;h2&gt;Push notifications&lt;/h2&gt;
 &lt;p&gt;There is a few options to send information from the computer to the phone, including emailing packages such as &lt;a href=&#34;https://cran.r-project.org/web/packages/sendmailR/index.html&#34;&gt;sendemailR&lt;/a&gt;, &lt;a href=&#34;https://github.com/jimhester/gmailr&#34;&gt;gmailr&lt;/a&gt; and &lt;a href=&#34;https://cran.r-project.org/web/packages/notifyR/index.html&#34;&gt;notifyR&lt;/a&gt;. The first two focus on automated reporting using email, and they could be problematic when it comes to security settings such as two-step authentication; notifyR though seems like a great solution that is very easy to set up and works very well, however it uses the &lt;a href=&#34;https://pushover.net/&#34;&gt;Pushover&lt;/a&gt;, and the mobile app is not free after seven days of trial, at the same time offers very limited functionality beyond pushing notifications.&lt;/p&gt;
 &lt;p&gt;The best solution is naturally Pushbullet. It is a well established web service that can push notifications between the smartphone and the computer among other functions (e.g. sending SMS messages via the computer). We are interested in pushing the book title to the phone, and this can be implemented using the &lt;a href=&#34;https://github.com/eddelbuettel/rpushbullet&#34;&gt;RPushbullet package&lt;/a&gt; by the briliant &lt;a href=&#34;http://dirk.eddelbuettel.com/&#34;&gt;Dirk Eddelbuettel&lt;/a&gt; who is better known for &lt;a href=&#34;https://github.com/RcppCore/Rcpp&#34;&gt;Rcpp&lt;/a&gt; among other open source contributions.&lt;/p&gt;
-&lt;p&gt;Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone, and download the browser extension to set up on the computer. And the last thing to do on the website is to go to the &lt;a href=&#34;https://www.pushbullet.com/#settings/account&#34;&gt;account page&lt;/a&gt; and grab an Access Token after clicking on the “Create Access Token” button.&lt;/p&gt;
+&lt;p&gt;Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/r_notifications/pb_phone.png&#34; alt=&#34;pb_phone&#34; width=&#34;500&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And download the browser extension to set up on the computer:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/r_notifications/pb_computer.png&#34; alt=&#34;pb_computer&#34; width=&#34;500&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And the last thing to do on the website is to go to the &lt;a href=&#34;https://www.pushbullet.com/#settings/account&#34;&gt;account page&lt;/a&gt; and grab an Access Token after clicking on the “Create Access Token” button:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/r_notifications/pb_account.png&#34; alt=&#34;pb_computer&#34; width=&#34;500&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;RPushbullet&lt;/code&gt; package uses a JSON file &lt;code&gt;~/.rpushbullet.json&lt;/code&gt; configuration file to get the account information. The account is identify by the Access Token from the website account page, and the connected devices come with Token. The below code automates the process.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(RPushbullet)
 pbSetup(apikey = &amp;#39;your_access_token&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;When asked &lt;code&gt;Select a default device (0 for none):&lt;/code&gt;, select the phone as the default device, as this will simplify a step later.&lt;/p&gt;
 &lt;p&gt;Now we can test pushing a notification:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pbPost(&amp;quot;link&amp;quot;, title=&amp;quot;Today&amp;#39;s free book&amp;quot;,
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pbPost(&amp;quot;link&amp;quot;, title=&amp;quot;Today&amp;#39;s Packt free book&amp;quot;,
        url = url, body = book_title) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;There’s the notification that you made yourself, it’s a whole new world!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/xinye1/projects/master/rnotification/img/notification2.png&#34; alt=&#34;notification&#34; width=&#34;500&#34;&gt;&lt;/p&gt;
 &lt;p&gt;It is easy to imagine how useful this is for running script on a remote server, e.g. if a script takes longer than you care to keep checking whether it has finished, it’s an elegant to be notified - just add the snippet at the end of the script. In fact that’s the majority of the use cases I see, definitely worth a try.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;scheduling&#34; class=&#34;section level2&#34;&gt;
@@ -159,7 +164,7 @@ pbSetup(apikey = &amp;#39;your_access_token&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;With all Liux systems comes with a utility called &lt;code&gt;cron&lt;/code&gt;. It is driven by a &lt;code&gt;crontab&lt;/code&gt; (cron table) file, a configuration file that specifies shell commands to run periodically on a given schedule. To edit this file, run:&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;$ crontab -e&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Each line of a crontab file represents a job, and looks like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; ┌──────── minute (0 - 59)
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt; ┌──────── minute (0 - 59)
  │ ┌──────── hour (0 - 23)
  │ │ ┌──────── day of month (1 - 31)
  │ │ │ ┌──────── month (1 - 12)
@@ -198,15 +203,15 @@ $ ./script.R          # the ./ part is necessary&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#!/usr/bin/env Rscript
 pacman::p_load(rvest, stringr, RPushbullet)
 
-url &amp;lt;- &amp;#39;url.of.the/target/website&amp;#39;
-selector &amp;lt;- &amp;#39;#CSS &amp;gt; selector &amp;gt; for &amp;gt; the &amp;gt; element&amp;#39;
+url &amp;lt;- &amp;#39;https://www.packtpub.com/packt/offers/free-learning&amp;#39;
+selector &amp;lt;- &amp;#39;#deal-of-the-day &amp;gt; div &amp;gt; div &amp;gt; div.dotd-main-book-summary.float-left &amp;gt; div.dotd-title &amp;gt; h2&amp;#39;
 book_title &amp;lt;- url %&amp;gt;%
   read_html %&amp;gt;%
   html_node(selector) %&amp;gt;%
   html_text %&amp;gt;%
   str_trim
 
-pbPost(&amp;quot;link&amp;quot;, title=&amp;quot;Today&amp;#39;s free book&amp;quot;,
+pbPost(&amp;quot;link&amp;quot;, title=&amp;quot;Today&amp;#39;s Packt free book&amp;quot;,
        url = url, body = book_title) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Save the script in &lt;code&gt;/projects&lt;/code&gt; folder under the home directory (&lt;code&gt;~&lt;/code&gt;).&lt;/p&gt;
 &lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
@@ -218,7 +223,7 @@ $ chmod +x script.R&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Create a cron job by running &lt;code&gt;crontab -e&lt;/code&gt;, and at the bottom of the file insert the line:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;0 9 * * * /home/ubuntu/projects/script.R&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now enjoy the custom notifications that contribute to your well organised life!&lt;/p&gt;
+&lt;p&gt;Voila! Enjoy the custom notifications that contribute to your well organised life!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;
