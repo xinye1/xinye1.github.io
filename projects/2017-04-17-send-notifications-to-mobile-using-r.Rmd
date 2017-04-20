@@ -58,15 +58,15 @@ The best solution is naturally Pushbullet. It is a well established web service 
 
 Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone:
 
-<img src="img/r_notifications/pb_phone.png" alt="pb_phone" width="500">
+<img src="https://raw.githubusercontent.com/xinye1/projects/master/rnotification/img/pb_phone.png" alt="pb_phone" width="500">
 
 And download the browser extension to set up on the computer:
 
-<img src="img/r_notifications/pb_computer.png" alt="pb_computer" width="500">
+<img src="https://raw.githubusercontent.com/xinye1/projects/master/rnotification/img/pb_computer.png" alt="pb_computer" width="500">
 
 And the last thing to do on the website is to go to the [account page](https://www.pushbullet.com/#settings/account) and grab an Access Token after clicking on the "Create Access Token" button:
 
-<img src="img/r_notifications/pb_account.png" alt="pb_computer" width="500">
+<img src="https://raw.githubusercontent.com/xinye1/projects/master/rnotification/img/pb_account.png" alt="pb_computer" width="500">
 
 The `RPushbullet` package uses a JSON file `~/.rpushbullet.json` configuration file to get the account information. The account is identify by the Access Token from the website account page, and the connected devices come with Token. The below code automates the process.
 

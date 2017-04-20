@@ -212,11 +212,11 @@ book_title &lt;- url %&gt;%
 <p>There is a few options to send information from the computer to the phone, including emailing packages such as <a href="https://cran.r-project.org/web/packages/sendmailR/index.html">sendemailR</a>, <a href="https://github.com/jimhester/gmailr">gmailr</a> and <a href="https://cran.r-project.org/web/packages/notifyR/index.html">notifyR</a>. The first two focus on automated reporting using email, and they could be problematic when it comes to security settings such as two-step authentication; notifyR though seems like a great solution that is very easy to set up and works very well, however it uses the <a href="https://pushover.net/">Pushover</a>, and the mobile app is not free after seven days of trial, at the same time offers very limited functionality beyond pushing notifications.</p>
 <p>The best solution is naturally Pushbullet. It is a well established web service that can push notifications between the smartphone and the computer among other functions (e.g. sending SMS messages via the computer). We are interested in pushing the book title to the phone, and this can be implemented using the <a href="https://github.com/eddelbuettel/rpushbullet">RPushbullet package</a> by the briliant <a href="http://dirk.eddelbuettel.com/">Dirk Eddelbuettel</a> who is better known for <a href="https://github.com/RcppCore/Rcpp">Rcpp</a> among other open source contributions.</p>
 <p>Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone:</p>
-<p><img src="img/r_notifications/pb_phone.png" alt="pb_phone" width="500"></p>
+<p><img src="https://raw.githubusercontent.com/xinye1/projects/master/rnotification/img/pb_phone.png" alt="pb_phone" width="500"></p>
 <p>And download the browser extension to set up on the computer:</p>
-<p><img src="img/r_notifications/pb_computer.png" alt="pb_computer" width="500"></p>
+<p><img src="https://raw.githubusercontent.com/xinye1/projects/master/rnotification/img/pb_computer.png" alt="pb_computer" width="500"></p>
 <p>And the last thing to do on the website is to go to the <a href="https://www.pushbullet.com/#settings/account">account page</a> and grab an Access Token after clicking on the “Create Access Token” button:</p>
-<p><img src="img/r_notifications/pb_account.png" alt="pb_computer" width="500"></p>
+<p><img src="https://raw.githubusercontent.com/xinye1/projects/master/rnotification/img/pb_account.png" alt="pb_computer" width="500"></p>
 <p>The <code>RPushbullet</code> package uses a JSON file <code>~/.rpushbullet.json</code> configuration file to get the account information. The account is identify by the Access Token from the website account page, and the connected devices come with Token. The below code automates the process.</p>
 <pre class="r"><code>library(RPushbullet)
 pbSetup(apikey = &#39;your_access_token&#39;)</code></pre>
