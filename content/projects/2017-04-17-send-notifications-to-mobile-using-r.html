@@ -25,7 +25,7 @@ description: 'A quick post to demostrate scheduling of daily reminder mobile pho
 <h1>Why</h1>
 <p>There are two motivations:</p>
 <ol style="list-style-type: decimal">
-<li>There are websites that offer free stuff everyday. I have been taking the advantage of some free books but freqently find myself missing some that I would be quite interested in reading because I forget to check the website (there are probably more socially acceptable ways like following them on twitter, but what’s the fun in that?). I therefore want to have a daily notification on the phone that shows the book title, from which I will decide if I would like to go to the website and claim it.</li>
+<li><a href="https://www.packtpub.com/">Packt Publishing</a> sell great tech related books, and even better, they also offer a free book everyday on this page <a href="https://www.packtpub.com/packt/offers/free-learning" class="uri">https://www.packtpub.com/packt/offers/free-learning</a>. I have been taking the advantage of some free books but freqently find myself missing some that I would be quite interested simply because I forget to check the website (there are probably more socially acceptable ways like following them on twitter, but what’s the fun in that?). I therefore want to have a daily notification on the phone that shows the book title, from which I will decide if I would like to go to the website and claim it.</li>
 <li>At work I may be required to implement R script automation, this makes a perfect practice case.</li>
 </ol>
 </div>
@@ -42,12 +42,11 @@ description: 'A quick post to demostrate scheduling of daily reminder mobile pho
 <h1>The walkthrough</h1>
 <div id="scraping-the-book-title" class="section level2">
 <h2>Scraping the book title</h2>
-<p>Out of caution I contacted the website for which I intend to use this method, as its Terms and Conditions don’t specify the knowledge sharing of web scraping on the site. Until I have explicit permission from them I will stick to a non-specific example for now.</p>
 <p>Hadley Wickham’s <code>rvest</code> package is the <a href="https://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> for R, the <em>go to</em> package for web scraping. There are plenty of tutorials on the web, so I shall simply lay down the snippet here for completeness:</p>
 <pre class="r"><code>pacman::p_load(rvest, stringr)
 
-url &lt;- &#39;url.of.the/target/website&#39;
-selector &lt;- &#39;#CSS &gt; selector &gt; for &gt; the &gt; element&#39;
+url &lt;- &#39;https://www.packtpub.com/packt/offers/free-learning&#39;
+selector &lt;- &#39;#deal-of-the-day &gt; div &gt; div &gt; div.dotd-main-book-summary.float-left &gt; div.dotd-title &gt; h2&#39;
 book_title &lt;- url %&gt;%
   read_html %&gt;%
   html_node(selector) %&gt;%
@@ -58,15 +57,21 @@ book_title &lt;- url %&gt;%
 <h2>Push notifications</h2>
 <p>There is a few options to send information from the computer to the phone, including emailing packages such as <a href="https://cran.r-project.org/web/packages/sendmailR/index.html">sendemailR</a>, <a href="https://github.com/jimhester/gmailr">gmailr</a> and <a href="https://cran.r-project.org/web/packages/notifyR/index.html">notifyR</a>. The first two focus on automated reporting using email, and they could be problematic when it comes to security settings such as two-step authentication; notifyR though seems like a great solution that is very easy to set up and works very well, however it uses the <a href="https://pushover.net/">Pushover</a>, and the mobile app is not free after seven days of trial, at the same time offers very limited functionality beyond pushing notifications.</p>
 <p>The best solution is naturally Pushbullet. It is a well established web service that can push notifications between the smartphone and the computer among other functions (e.g. sending SMS messages via the computer). We are interested in pushing the book title to the phone, and this can be implemented using the <a href="https://github.com/eddelbuettel/rpushbullet">RPushbullet package</a> by the briliant <a href="http://dirk.eddelbuettel.com/">Dirk Eddelbuettel</a> who is better known for <a href="https://github.com/RcppCore/Rcpp">Rcpp</a> among other open source contributions.</p>
-<p>Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone, and download the browser extension to set up on the computer. And the last thing to do on the website is to go to the <a href="https://www.pushbullet.com/#settings/account">account page</a> and grab an Access Token after clicking on the “Create Access Token” button.</p>
+<p>Setting up Pushbullet is straightforward, you can do that by logging in on the website using either the Google or Facebook credentials. Then download the app to set up on the phone:</p>
+<p><img src="img/r_notifications/pb_phone.png" alt="pb_phone" width="500"></p>
+<p>And download the browser extension to set up on the computer:</p>
+<p><img src="img/r_notifications/pb_computer.png" alt="pb_computer" width="500"></p>
+<p>And the last thing to do on the website is to go to the <a href="https://www.pushbullet.com/#settings/account">account page</a> and grab an Access Token after clicking on the “Create Access Token” button:</p>
+<p><img src="img/r_notifications/pb_account.png" alt="pb_computer" width="500"></p>
 <p>The <code>RPushbullet</code> package uses a JSON file <code>~/.rpushbullet.json</code> configuration file to get the account information. The account is identify by the Access Token from the website account page, and the connected devices come with Token. The below code automates the process.</p>
 <pre class="r"><code>library(RPushbullet)
 pbSetup(apikey = &#39;your_access_token&#39;)</code></pre>
 <p>When asked <code>Select a default device (0 for none):</code>, select the phone as the default device, as this will simplify a step later.</p>
 <p>Now we can test pushing a notification:</p>
-<pre class="r"><code>pbPost(&quot;link&quot;, title=&quot;Today&#39;s free book&quot;,
+<pre class="r"><code>pbPost(&quot;link&quot;, title=&quot;Today&#39;s Packt free book&quot;,
        url = url, body = book_title) </code></pre>
 <p>There’s the notification that you made yourself, it’s a whole new world!</p>
+<p><img src="https://raw.githubusercontent.com/xinye1/projects/master/rnotification/img/notification2.png" alt="notification" width="500"></p>
 <p>It is easy to imagine how useful this is for running script on a remote server, e.g. if a script takes longer than you care to keep checking whether it has finished, it’s an elegant to be notified - just add the snippet at the end of the script. In fact that’s the majority of the use cases I see, definitely worth a try.</p>
 </div>
 <div id="scheduling" class="section level2">
@@ -82,7 +87,7 @@ pbSetup(apikey = &#39;your_access_token&#39;)</code></pre>
 <p>With all Liux systems comes with a utility called <code>cron</code>. It is driven by a <code>crontab</code> (cron table) file, a configuration file that specifies shell commands to run periodically on a given schedule. To edit this file, run:</p>
 <pre class="bash"><code>$ crontab -e</code></pre>
 <p>Each line of a crontab file represents a job, and looks like this:</p>
-<pre><code> ┌──────── minute (0 - 59)
+<pre class="bash"><code> ┌──────── minute (0 - 59)
  │ ┌──────── hour (0 - 23)
  │ │ ┌──────── day of month (1 - 31)
  │ │ │ ┌──────── month (1 - 12)
@@ -121,15 +126,15 @@ $ ./script.R          # the ./ part is necessary</code></pre>
 <pre class="r"><code>#!/usr/bin/env Rscript
 pacman::p_load(rvest, stringr, RPushbullet)
 
-url &lt;- &#39;url.of.the/target/website&#39;
-selector &lt;- &#39;#CSS &gt; selector &gt; for &gt; the &gt; element&#39;
+url &lt;- &#39;https://www.packtpub.com/packt/offers/free-learning&#39;
+selector &lt;- &#39;#deal-of-the-day &gt; div &gt; div &gt; div.dotd-main-book-summary.float-left &gt; div.dotd-title &gt; h2&#39;
 book_title &lt;- url %&gt;%
   read_html %&gt;%
   html_node(selector) %&gt;%
   html_text %&gt;%
   str_trim
 
-pbPost(&quot;link&quot;, title=&quot;Today&#39;s free book&quot;,
+pbPost(&quot;link&quot;, title=&quot;Today&#39;s Packt free book&quot;,
        url = url, body = book_title) </code></pre>
 <p>Save the script in <code>/projects</code> folder under the home directory (<code>~</code>).</p>
 <ol start="2" style="list-style-type: decimal">
@@ -141,7 +146,7 @@ $ chmod +x script.R</code></pre>
 <li>Create a cron job by running <code>crontab -e</code>, and at the bottom of the file insert the line:</li>
 </ol>
 <pre class="bash"><code>0 9 * * * /home/ubuntu/projects/script.R</code></pre>
-<p>Now enjoy the custom notifications that contribute to your well organised life!</p>
+<p>Voila! Enjoy the custom notifications that contribute to your well organised life!</p>
 </div>
 <div class="footnotes">
 <hr />
