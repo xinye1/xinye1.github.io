@@ -11,7 +11,7 @@ title = "Xinye Fiddles"
 paginate = 5
 pluralizelisttitles = false
 disqusShortname = "lixinye"
-rssURI = "feed"
+#rssURI = "index.xml"
 
 
 [permalinks]
@@ -34,7 +34,7 @@ rssURI = "feed"
 	#social_banner = "img/banner_tf.jpg"
 	gaid = "UA-93764648-1"
 	totop = true
-  rssURI = "feed"
+  rssURI = "index.xml"
 	
 	sidebartitle = "Xinye Fiddles"
 	sidebartagline = "This is where I share the results of my fiddling with data, with coding, and whatever I may get into in the future."
@@ -75,7 +75,7 @@ rssURI = "feed"
 	
 	[[menu.social]]
 	pre = "<i class='fa fa-rss'></i>"
-    url = "https://xinye1.github.io/feed"
+    url = "index.xml"
     identifier = "rss"
 	
 	[[menu.footer]]
