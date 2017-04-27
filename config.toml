@@ -11,6 +11,7 @@ title = "Xinye Fiddles"
 paginate = 5
 pluralizelisttitles = false
 disqusShortname = "lixinye"
+rssURI = "feed"
 
 
 [permalinks]
@@ -33,6 +34,7 @@ disqusShortname = "lixinye"
 	#social_banner = "img/banner_tf.jpg"
 	gaid = "UA-93764648-1"
 	totop = true
+  rssURI = "feed"
 	
 	sidebartitle = "Xinye Fiddles"
 	sidebartagline = "This is where I share the results of my fiddling with data, with coding, and whatever I may get into in the future."
@@ -65,11 +67,16 @@ disqusShortname = "lixinye"
 	pre = "<i class='fa fa-linkedin'></i>"
     url = "https://www.linkedin.com/in/xinyeli"
     identifier = "linkedin"
-	
+
 	[[menu.social]]
 	pre = "<i class='fa fa-github'></i>"
     url = "https://github.com/xinye1"
     identifier = "github"
+	
+	[[menu.social]]
+	pre = "<i class='fa fa-rss'></i>"
+    url = "https://xinye1.github.io/feed"
+    identifier = "rss"
 	
 	[[menu.footer]]
     name = "Blog"
