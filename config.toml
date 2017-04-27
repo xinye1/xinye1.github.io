@@ -11,7 +11,7 @@ title = "Xinye Fiddles"
 paginate = 5
 pluralizelisttitles = false
 disqusShortname = "lixinye"
-rssURI = "https://xinye1.github.io/index.xml"
+rssURI = "index.xml"
 
 
 [permalinks]
@@ -79,7 +79,7 @@ rssURI = "https://xinye1.github.io/index.xml"
 	
 	[[menu.social]]
 	pre = "<i class='fa fa-rss'></i>"
-    url = "index.xml"
+    url = "https://xinye1.github.io/index.xml"
     identifier = "rss"
 	
 	[[menu.footer]]
