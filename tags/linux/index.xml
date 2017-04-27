@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rpushbullet on Xinye Fiddles</title>
-    <link>https://xinye1.github.io/tags/rpushbullet/feed/</link>
-    <description>Recent content in Rpushbullet on Xinye Fiddles</description>
+    <title>Linux on Xinye Fiddles</title>
+    <link>https://xinye1.github.io/tags/linux/index.xml</link>
+    <description>Recent content in Linux on Xinye Fiddles</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <atom:link href="https://xinye1.github.io/tags/rpushbullet/feed/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xinye1.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Send Daily Reminder to Mobile using R</title>
