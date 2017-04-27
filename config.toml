@@ -57,6 +57,9 @@ disqusShortname = "lixinye"
 	name = 'Licence'
 	url = '/licence'
 	
+	[[menu.main]]
+	name = 'Blogroll'
+	url = '/blogroll'
 	
 	[[menu.social]]
 	pre = "<i class='fa fa-twitter'></i>"
