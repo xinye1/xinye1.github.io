@@ -30,7 +30,7 @@ There are two motivations:
 Here are the three simple steps:
 
 1. We will be using R to scrape the book title off the webpage, which luckily for us has a static URL - for this, we use [rvest](https://github.com/hadley/rvest).
-2. We then find a way to push the book title to the phone - for this, we use the popular web service [Pushbullet](https://www.pushbullet.com/), and yes, there's a package for that: [RPushbullet](https://github.com/eddelbuettel/rpushbullet) that interface .
+2. We then find a way to push the book title to the phone - for this, we use the popular web service [Pushbullet](https://www.pushbullet.com/), and yes, there's a package for that: [RPushbullet](https://github.com/eddelbuettel/rpushbullet).
 3. The whole process can then be scheduled to run everyday from a server - we'll run a [`cron`](https://en.wikipedia.org/wiki/Cron) job on AWS.
 
 # The walkthrough

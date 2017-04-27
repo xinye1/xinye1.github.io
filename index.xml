@@ -111,7 +111,7 @@ git worktree add -B master public origin/master
 &lt;p&gt;Here are the three simple steps:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;We will be using R to scrape the book title off the webpage, which luckily for us has a static URL - for this, we use &lt;a href=&#34;https://github.com/hadley/rvest&#34;&gt;rvest&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;We then find a way to push the book title to the phone - for this, we use the popular web service &lt;a href=&#34;https://www.pushbullet.com/&#34;&gt;Pushbullet&lt;/a&gt;, and yes, there’s a package for that: &lt;a href=&#34;https://github.com/eddelbuettel/rpushbullet&#34;&gt;RPushbullet&lt;/a&gt; that interface .&lt;/li&gt;
+&lt;li&gt;We then find a way to push the book title to the phone - for this, we use the popular web service &lt;a href=&#34;https://www.pushbullet.com/&#34;&gt;Pushbullet&lt;/a&gt;, and yes, there’s a package for that: &lt;a href=&#34;https://github.com/eddelbuettel/rpushbullet&#34;&gt;RPushbullet&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;The whole process can then be scheduled to run everyday from a server - we’ll run a &lt;a href=&#34;https://en.wikipedia.org/wiki/Cron&#34;&gt;&lt;code&gt;cron&lt;/code&gt;&lt;/a&gt; job on AWS.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
