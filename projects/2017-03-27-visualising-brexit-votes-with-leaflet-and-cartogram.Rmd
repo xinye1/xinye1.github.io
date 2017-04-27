@@ -14,6 +14,7 @@ Tags:
   - hexagon map
   - brexit
   - visualisation
+  - R
 menu: projects
 descritpion: 'A tutorial on manipulating shapefiles, using `cartogram` and `leaftlet` packages with R'
 ---
