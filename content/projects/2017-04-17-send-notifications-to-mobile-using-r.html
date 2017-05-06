@@ -16,11 +16,8 @@ menu: projects
 description: 'A quick post to demostrate scheduling of daily reminder mobile phone notifications using R'
 ---
 
-<!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
 
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
+
 <p>The very active development of R means that there are fewer and fewer tasks that cannot be accomplished with R. Today let’s schedule a custom push notification for the smartphone.</p>
 <div id="why" class="section level1">
 <h1>Why</h1>
@@ -47,12 +44,11 @@ description: 'A quick post to demostrate scheduling of daily reminder mobile pho
 <pre class="r"><code>pacman::p_load(rvest, stringr)
 
 url &lt;- &#39;https://www.packtpub.com/packt/offers/free-learning&#39;
-selector &lt;- &#39;#deal-of-the-day &gt; div &gt; div &gt; div.dotd-main-book-summary.float-left &gt; div.dotd-title &gt; h2&#39;
+selector &lt;- &#39;div.dotd-title &gt; h2&#39;
 book_title &lt;- url %&gt;%
   read_html %&gt;%
   html_node(selector) %&gt;%
-  html_text %&gt;%
-  str_trim</code></pre>
+  html_text(trim = T)</code></pre>
 </div>
 <div id="push-notifications" class="section level2">
 <h2>Push notifications</h2>
